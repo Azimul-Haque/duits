@@ -3917,7 +3917,7 @@ input:focus:-ms-input-placeholder{
 	top:70px;
 	bottom:75px;
 	width:100%;
-	padding:0;
+	padding:25px;
 	overflow-x:hidden;
 	overflow-y:auto
 }

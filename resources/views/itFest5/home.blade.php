@@ -213,20 +213,20 @@
                 <header>
                 <h1>Want To Registration Now?</h1>
                 </header>
-                <a href="#modal-contact01" class="btn btn-large" data-toggle="modal">Registration</a>
+                <a href="#modal-contact01" class="btn btn-large" data-toggle="modal" data-backdrop="static">Registration</a>
             </div>
         </div>
     </div>
     </section>
     <div class="modal fade" id="modal-contact01" tabindex="-1" role="dialog" aria-labelledby="modal-contact01" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-static">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-cancel-1"></i></span></button>
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
-                
+                <p>Test</p>
             </div>
             <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
         </div>
