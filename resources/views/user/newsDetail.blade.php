@@ -22,12 +22,14 @@
                             <div class="post-content">
                                 <figure>
                                     <?php
-                                    if(sizeof($news->broadcasts_image)>0){
-                                        $path = $news->broadcasts_image[0]->path;
-                                    }
-                                    else $path ="default.jpg";
+                                        if(!$news->imagepath == NULL){
+                                            $path = $news->imagepath;
+                                        }
+                                        else {
+                                            $path ="default.jpg";
+                                        }
                                     ?>
-                                    <img src="/images/news/{{$path}}" alt="">
+                                    <img src="/images/news/{{$path}}" alt=""></a>
                                 </figure>
                                 <h1 class="post-title">{{$news->headline}}</h1>
                                 <p style="text-align: justify">

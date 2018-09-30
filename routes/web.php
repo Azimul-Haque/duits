@@ -28,8 +28,9 @@ Route::get('/committee/{name}','IndexController@showCommittee');
 Route::get('/history','IndexController@showHistory')->name('user.history');
 Route::get('/why-us','IndexController@showWhyus')->name('user.why.us');
 Route::post('/submit/message','IndexController@storeMessage')->name('user.submit.message');
-Route::get('/it-fest-5','IndexController@showItFest5')->name('user.it.Fest5');
 Route::get('/admin/check/committee','AdminController@checkCommitteeExistence');
+Route::get('/it-fest-5','IndexController@showItFest5')->name('user.it.Fest5');
+Route::post('/it-fest-5','IndexController@storeItFest5')->name('it.Fest5.store');
 
 // Code By Rifat
 //Route::get('/it-fest-5','IndexController@showItFest5')->name('user.it.Fest5');

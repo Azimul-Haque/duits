@@ -62,12 +62,12 @@ class IndexController extends Controller
     }
 
     public function showNews(){
-        $news = News::with('broadcasts_image')->orderBy('id','DESC')->paginate(3);
+        $news = News::orderBy('id','DESC')->paginate(3);
         return view('user.news',['news' => $news]);
     }
 
     public function showNewsDetails(Request $request){
-        $news = News::with('broadcasts_image')->find($request->id);
+        $news = News::find($request->id);
         return view('user.newsDetail',['news' => $news]);
     }
 
@@ -115,5 +115,9 @@ class IndexController extends Controller
         $covers = ITFestCover::get();
         $guests = ITFestGuest::get();
         return view('itFest5.home', ['covers' => $covers, 'guests' => $guests]);
+    }
+
+    public function storeItFest5(Request $request){
+        
     }
 }

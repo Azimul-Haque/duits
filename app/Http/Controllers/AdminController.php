@@ -13,8 +13,10 @@ use App\Committee_type as Committee_type;
 use App\ITFest5Cover as ITFestCover;
 use App\ITFest5Guest as ITFestGuest;
 
+use Carbon\Carbon;
 use Session;
 use Auth;
+use Image;
 
 class AdminController extends Controller
 {
@@ -105,26 +107,29 @@ class AdminController extends Controller
         $this->validate($request,array(
             'headline' => 'required|max:500',
             'body' => 'required',
+            'image' => 'sometimes|image|max:300'
         ));
 
         $news = new News();
         $news->headline = $request->headline;
         $news->body = $request->body;
-        $news->save();
+        
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $nowdatetime = Carbon::now();
+            $filename   = str_replace(' ','',$news->headline).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/news/'. $filename);
 
-        $news = News::orderBy('id','DESC')->first();
-        if($request->hasFile('photos')){
-            $counter =1;
-            foreach($request->photos as $item){
-                $fileName = time().$counter.$item->getClientOriginalName();
-                $item->move(public_path('/uploads/news'),$fileName);
-                $counter++;
-                $image =  new News_image();
-                $image->path = $fileName;
-                $news->broadcasts_image()->save($image);
-            }
-            Session::flash('success_news_post','Photo uploaded');
+            Image::make($image)->resize(500, 333)->save($location);
+            /*Image::make($image)->resize(300, 300, function ($constraint) {
+            $constraint->aspectRatio();
+            })->save($location);*/
+
+            $news->imagepath = $filename;
         }
+
+        $news->save();
 
         Session::flash('success_news_post','Successfully Saved');
         return redirect(Route('admin.dashboard'));
@@ -140,25 +145,38 @@ class AdminController extends Controller
         $this->validate($request,array(
             'headline' => 'required|max:500',
             'body' => 'required',
+            'image' => 'sometimes|image|max:300'
         ));
 
         $news = News::find($request->id);
         $news->headline = $request->headline;
         $news->body = $request->body;
-        $news->save();
 
-        $news = News::orderBy('id','DESC')->first();
-        if($request->hasFile('photos')){
-            $counter =1;
-            foreach($request->photos as $item){
-                $fileName = time().$counter.$item->getClientOriginalName();
-                $item->move(public_path('/uploads/news'),$fileName);
-                $counter++;
-                $image =  new News_image();
-                $image->path = $fileName;
-                $news->broadcasts_image()->save($image);
+        // image upload
+        if(!$news->imagepath == NULL){
+            if($request->hasFile('image')) {
+                $image      = $request->file('image');
+                $filename   = $news->imagepath;
+                $location   = public_path('images/news/'. $filename);
+
+                Image::make($image)->resize(500, 333)->save($location);
+
+                $news->imagepath = $filename;
+            }
+        } else {
+            if($request->hasFile('image')) {
+                $image      = $request->file('image');
+                $nowdatetime = Carbon::now();
+                $filename   = str_replace(' ','',$news->headline).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
+                $location   = public_path('images/news/'. $filename);
+
+                Image::make($image)->resize(500, 333)->save($location);
+                $news->imagepath = $filename;
             }
         }
+        
+
+        $news->save();
 
         Session::flash('success_edit','Successfully Edited');
         return redirect(Route('admin.dashboard'));

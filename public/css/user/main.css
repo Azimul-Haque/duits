@@ -5066,3 +5066,7 @@ a.changecolor{
     box-shadow: -0.5em 0 0 #506a85, 0.5em 0 0 #506a85;
     -webkit-box-decoration-break: clone;
 }
+.btn-default {
+	color: #222222 !important;
+	background: #DDD !important;
+}

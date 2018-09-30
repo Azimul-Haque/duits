@@ -19,22 +19,24 @@
                             </div>
                             <div class="post-content">
                                 <figure class="icon-overlay icn-link post-media">
-                                    <a href="/detail/news/{{$item->headline}}">
+                                    <a href="/detail/news/{{$item->id}}">
                                         <?php
-                                            if(sizeof($item->broadcasts_image)>0){
-                                                $path = $item->broadcasts_image[0]->path;
+                                            if(!$item->imagepath == NULL){
+                                                $path = $item->imagepath;
                                             }
-                                            else $path ="default.jpg";
+                                            else {
+                                                $path ="default.jpg";
+                                            }
                                         ?>
                                         <img src="/images/news/{{$path}}" alt=""></a>
                                 </figure>
-                                <h2 class="post-title"><a href="/detail/news/{{$item->headline}}">{{$item->headline}}</a></h2>
+                                <h2 class="post-title"><a href="/detail/news/{{$item->id}}">{{$item->headline}}</a></h2>
                                 <p>
                                     <?php
                                         echo $item->body;
                                     ?>
                                 </p>
-                                <a href="/detail/news/{{$item->headline}}" class="btn">Read more</a>
+                                <a href="/detail/news/{{$item->id}}" class="btn">Read more</a>
                             </div>
                         </div>
                         @endforeach

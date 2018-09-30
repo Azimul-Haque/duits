@@ -223,12 +223,68 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-cancel-1"></i></span></button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Registration</h4>
             </div>
+            <form method="post" action="{{Route('it.Fest5.store')}}" enctype="multipart/form-data">
             <div class="modal-body">
-                <p>Test</p>
+                {{csrf_field()}}
+                <div class="form-group">
+                    <label class="control-label">Event Name:</label>
+                    <select class="form-control" name="event" required>
+                        <option value="" selected="" disabled="">Select Event Name</option>
+                        <option value="1">Smart Idea COntest</option>
+                        <option value="2">Apps in Life</option>
+                        <option value="3">IT Project Showcasing</option>
+                        <option value="4">IT Noesis Quiz</option>
+                        <option value="5">Gaming Contest</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Participant's Name/ Team</label>
+                    <input type="text" class="form-control" placeholder="" required name="name">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Member 1 Name (if any):</label>
+                    
+                    <input type="text" class="form-control" placeholder="" name="member1">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Member 2 Name (if any):</label>
+                    <input type="text" class="form-control" placeholder="" name="member2">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Member 3 Name (if any):</label>
+                    <input type="text" class="form-control" placeholder="" name="member3">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Institution:</label>
+                    <input type="text" class="form-control" placeholder="" required name="institution">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Class:</label>
+                    <input type="text" class="form-control" placeholder="" required name="class">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address:</label>
+                    <input type="text" class="form-control" placeholder="" required name="address">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Mobile No:</label>
+                    <input type="text" class="form-control" placeholder="" required name="mobile">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Emergency Contact No:</label>
+                    <input type="text" class="form-control" placeholder="" required name="emergencycontact">
+                </div>
+                <div class="form-group"><label class="control-label">Photo</label>
+                    <input type="file" name="image" accept="image/*">
+                </div>
             </div>
-            <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-w-m btn-primary">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </form>
         </div>
     </div>
     </div>
