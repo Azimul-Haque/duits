@@ -41,6 +41,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\ITFest5Cover' => $baseDir . '/app/ITFest5Cover.php',
     'App\\ITFest5Guest' => $baseDir . '/app/ITFest5Guest.php',
+    'App\\ITFest5Registration' => $baseDir . '/app/ITFest5Registration.php',
     'App\\Listeners\\CommitteeCreatedListener' => $baseDir . '/app/Listeners/CommitteeCreatedListener.php',
     'App\\Listeners\\CommitteeUpdatedListener' => $baseDir . '/app/Listeners/CommitteeUpdatedListener.php',
     'App\\Listeners\\EventListener' => $baseDir . '/app/Listeners/EventListener.php',

@@ -17,8 +17,11 @@
       <link href="/css/user/animate.min.css" rel="stylesheet">
       <link href="/css/user/aos.css" rel="stylesheet">
       <link href="/css/user/custom.css" rel="stylesheet">
+      <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Lato:400,900,300,700" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet">
+      <!-- Toastr style -->
+      <link href="/css/admin/plugins/toastr/toastr.min.css" rel="stylesheet">
       <link href="/fonts/fontello.css" rel="stylesheet">
       <link rel="shortcut icon" href="/images/favicon.png">
       <script>(function (d, e, j, h, f, c, b) { d.GoogleAnalyticsObject = f; d[f] = d[f] || function () { (d[f].q = d[f].q || []).push(arguments) }, d[f].l = 1 * new Date(); c = e.createElement(j), b = e.getElementsByTagName(j)[0]; c.async = 1; c.src = h; b.parentNode.insertBefore(c, b) })(window, document, "script", "../../../www.google-analytics.com/analytics.js", "ga"); ga("create", "UA-35598290-4", "fuviz.com"); ga("send", "pageview");</script>
@@ -191,6 +194,8 @@
 <script src="/js/user/selected-scroll.js"></script>
 <script src="/js/user/scripts.js"></script>
 <script src="/js/user/custom.js"></script>
+<!-- Toastr -->
+<script src="/js/admin/plugins/toastr/toastr.min.js"></script>
 <link href="/css/user/green.css" rel="alternate stylesheet" title="Green color">
 <link href="/css/user/blue.css" rel="alternate stylesheet" title="Blue color">
 <link href="/css/user/red.css" rel="alternate stylesheet" title="Red color">
@@ -202,6 +207,7 @@
 <script src="/switchstylesheet/switchstylesheet.js"></script>
 <script>$(document).ready(function () { $(".changecolor").switchstylesheet({ seperator: "color" }) });</script>
 @yield('scripts')
+@include('partials._messages')
 </body>
 
 </html>

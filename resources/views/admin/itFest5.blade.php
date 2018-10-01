@@ -1,46 +1,97 @@
 @extends('layouts.admin')
 @section('body')
     <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Cover</h5>
-                    </div>
-                    <div class="ibox-content">
-                    <button class="btn btn-info" data-toggle="modal" data-target="#addCoverModal">Add New Cover</button>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover dataTables-example" >
-                                <thead>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Image</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($covers as $item)
-                                        <tr>
-                                            <td>
-                                                {{$item->title}}
-                                            </td>
-                                            <td>
-                                                <img src="/uploads/itFest5/cover/{{$item->image}}" style="height: 30px; width: 30px">
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-danger" href="/admin/delete/itFest5/cover/{{$item->id}}"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Registrations</h5>
+                </div>
+                <div class="ibox-content">
+                {{-- <button class="btn btn-info" data-toggle="modal" data-target="#addCoverModal">Add New Cover</button> --}}
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example" >
+                            <thead>
+                            <tr>
+                                <th>Team Name</th>
+                                <th>Event</th>
+                                <th>Registration ID</th>
+                                <th>Institution</th>
+                                <th>Mobile</th>
+                                <th>Amount</th>
+                                <th>Payment Status</th>
+                                <th>Image</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($registrations as $registration)
+                                    <tr>
+                                        <td>{{ $registration->team }}</td>
+                                        <td>{{ $registration->event_name }}</td>
+                                        <td>{{ $registration->registration_id }}</td>
+                                        <td>{{ $registration->institution }}</td>
+                                        <td>{{ $registration->mobile }}</td>
+                                        <td>{{ $registration->amount }} /-</td>
+                                        <td>
+                                            @if($registration->payment_status == 0)
+                                                Not Paid
+                                            @else
+                                                Paid
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <img src="{{ asset('images/registration/' . $registration->imagepath) }}" style="height: 30px; width: 30px">
+                                        </td>
+                                    </tr>
+                                @endforeach
 
-                                </tbody>
+                            </tbody>
 
-                            </table>
-                        </div>
-
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Cover</h5>
+                </div>
+                <div class="ibox-content">
+                <button class="btn btn-info" data-toggle="modal" data-target="#addCoverModal">Add New Cover</button>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example" >
+                            <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($covers as $item)
+                                    <tr>
+                                        <td>
+                                            {{$item->title}}
+                                        </td>
+                                        <td>
+                                            <img src="/uploads/itFest5/cover/{{$item->image}}" style="height: 30px; width: 30px">
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-danger" href="/admin/delete/itFest5/cover/{{$item->id}}"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
@@ -133,9 +184,9 @@
                         <div class="form-group"><label class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10"><input id="name" type="text" class="form-control" placeholder="" required name="name"></div>
                         </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">Designation</label>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Designation</label>
                             <div class="col-sm-10"><input id="designation" type="text" class="form-control" placeholder="" required name="designation"></div>
-                            </div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Photo</label>
                             <div class="col-sm-10"><input type="file" class="form-control" placeholder="" name="photo" required></div>

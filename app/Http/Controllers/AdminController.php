@@ -12,6 +12,7 @@ use App\Notice as Notices;
 use App\Committee_type as Committee_type;
 use App\ITFest5Cover as ITFestCover;
 use App\ITFest5Guest as ITFestGuest;
+use App\ITFest5Registration as ITFestRegistration;
 
 use Carbon\Carbon;
 use Session;
@@ -62,9 +63,10 @@ class AdminController extends Controller
     }
 
     public function ShowITFest5(){
+        $registrations = ITFestRegistration::get();
         $covers = ITFestCover::get();
         $guests = ITFestGuest::get();
-        return view('admin.itFest5', ['covers' => $covers, 'guests' => $guests]);
+        return view('admin.itFest5', ['covers' => $covers, 'guests' => $guests, 'registrations' => $registrations]);
     }
 
     public function showAddCommitteeMemberForm(){
@@ -95,7 +97,7 @@ class AdminController extends Controller
             $committee->photo = $fileName;
         }
         $committee->save();
-        Session::flash('success_administration_post','Successfully Saved');
+        Session::flash('success','Successfully Saved');
         return redirect(Route('admin.dashboard'));
     }
 
@@ -131,7 +133,7 @@ class AdminController extends Controller
 
         $news->save();
 
-        Session::flash('success_news_post','Successfully Saved');
+        Session::flash('success','Successfully Saved');
         return redirect(Route('admin.dashboard'));
     }
 
@@ -145,7 +147,7 @@ class AdminController extends Controller
         $this->validate($request,array(
             'headline' => 'required|max:500',
             'body' => 'required',
-            'image' => 'sometimes|image|max:300'
+            'image' => 'sometimes|image|mimes:jpeg,bmp,png,jpg|max:300'
         ));
 
         $news = News::find($request->id);
@@ -158,9 +160,7 @@ class AdminController extends Controller
                 $image      = $request->file('image');
                 $filename   = $news->imagepath;
                 $location   = public_path('images/news/'. $filename);
-
                 Image::make($image)->resize(500, 333)->save($location);
-
                 $news->imagepath = $filename;
             }
         } else {
@@ -169,7 +169,6 @@ class AdminController extends Controller
                 $nowdatetime = Carbon::now();
                 $filename   = str_replace(' ','',$news->headline).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
                 $location   = public_path('images/news/'. $filename);
-
                 Image::make($image)->resize(500, 333)->save($location);
                 $news->imagepath = $filename;
             }
@@ -178,14 +177,14 @@ class AdminController extends Controller
 
         $news->save();
 
-        Session::flash('success_edit','Successfully Edited');
+        Session::flash('success','Successfully Edited');
         return redirect(Route('admin.dashboard'));
     }
 
     public function deleteNews(Request $request){
         $news = News::find($request->id);
         $news->delete();
-        Session::flash('success_delete','Successfully Deleted');
+        Session::flash('success','Successfully Deleted');
         return redirect()->back();
     }
 
@@ -210,14 +209,14 @@ class AdminController extends Controller
             $notice->photo = $fileName;
         }
         $notice->save();
-        Session::flash('success_edit','Successfully Edited');
+        Session::flash('success','Successfully Edited');
         return redirect(Route('admin.dashboard'));
     }
 
     public function deleteNotice(Request $request){
         $notice = Notices::find($request->id);
         $notice->delete();
-        Session::flash('success_delete','Successfully Deleted');
+        Session::flash('success','Successfully Deleted');
         return redirect()->back();
 
     }
@@ -250,14 +249,14 @@ class AdminController extends Controller
             $committee->photo = $fileName;
         }
         $committee->save();
-        Session::flash('success_edit','Successfully Edited');
+        Session::flash('success','Successfully Edited');
         return redirect(Route('admin.dashboard'));
     }
 
     public function deleteCommitteeMember(Request $request){
         $adm = Administration ::find($request->id);
         $adm->delete();
-        Session::flash('success_delete','Successfully Deleted');
+        Session::flash('success','Successfully Deleted');
         return redirect()->back();
 
     }
@@ -293,14 +292,14 @@ class AdminController extends Controller
             }
         }
 
-        Session::flash('success_edit','Successfully Edited');
+        Session::flash('success','Successfully Edited');
         return redirect(Route('admin.dashboard'));
     }
 
     public function deleteEvents(Request $request){
         $event = Events::find($request->id);
         $event->delete();
-        Session::flash('success_delete','Successfully Deleted');
+        Session::flash('success','Successfully Deleted');
         return redirect()->back();
 
     }
@@ -335,7 +334,7 @@ class AdminController extends Controller
             }
         }
 
-        Session::flash('success_post','Successfully Saved');
+        Session::flash('success','Successfully Saved');
         return redirect(Route('admin.dashboard'));
     }
 
@@ -359,7 +358,7 @@ class AdminController extends Controller
             $notice->photo = $fileName;
         }
         $notice->save();
-        Session::flash('success_post','Successfully Saved');
+        Session::flash('success','Successfully Saved');
         return redirect(route('admin.dashboard'));
     }
 
@@ -377,7 +376,7 @@ class AdminController extends Controller
             $cover->image = $fileName;
         }
         $cover->save();
-        Session::flash('success_post','Successfully Saved');
+        Session::flash('success','Successfully Saved');
         return redirect(route('admin.itFest5'));
     }
 
@@ -397,21 +396,21 @@ class AdminController extends Controller
             $guest->photo = $fileName;
         }
         $guest->save();
-        Session::flash('success_post','Successfully Saved');
+        Session::flash('success','Successfully Saved');
         return redirect(route('admin.itFest5'));
     }
 
     public function deleteItFestCover(Request $request){
         $cover = ITFestCover::find($request->id);
         $cover->delete();
-        Session::flash('success_delete','Successfully Deleted');
+        Session::flash('success','Successfully Deleted');
         return redirect(route('admin.itFest5'));
     }
 
     public function deleteItFestGuest(Request $request){
         $guest = ITFestGuest::find($request->id);
         $guest->delete();
-        Session::flash('success_delete','Successfully Deleted');
+        Session::flash('success','Successfully Deleted');
         return redirect(route('admin.itFest5'));
     }
 

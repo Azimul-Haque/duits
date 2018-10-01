@@ -90,8 +90,6 @@
         <div class="wrapper wrapper-content animated fadeInRight">
 
             @yield('body')
-            @include('partials._masseges')
-
         </div>
         <div class="footer">
             <div class="pull-right">
@@ -142,22 +140,11 @@
 
 <!-- Toastr -->
 <script src="/js/admin/plugins/toastr/toastr.min.js"></script>
+
 <script src="/js/admin/plugins/summernote/summernote.min.js"></script>
 <script src="/js/admin/plugins/dataTables/datatables.min.js"></script>
 <script>
     $(document).ready(function() {
-        setTimeout(function() {
-            toastr.options = {
-                closeButton: true,
-                progressBar: true,
-                showMethod: 'slideDown',
-                timeOut: 4000
-            };
-            toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
-
-        }, 1300);
-
-
         var data1 = [
             [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
         ];
@@ -273,6 +260,7 @@
 
 </script>
 @yield('script')
+@include('partials._messages')
 </body>
 
 <!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Jan 2018 10:55:25 GMT -->

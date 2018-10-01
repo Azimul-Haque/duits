@@ -373,6 +373,7 @@ class ComposerStaticInitcef9fbe6684a87e629897d35841b745f
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\ITFest5Cover' => __DIR__ . '/../..' . '/app/ITFest5Cover.php',
         'App\\ITFest5Guest' => __DIR__ . '/../..' . '/app/ITFest5Guest.php',
+        'App\\ITFest5Registration' => __DIR__ . '/../..' . '/app/ITFest5Registration.php',
         'App\\Listeners\\CommitteeCreatedListener' => __DIR__ . '/../..' . '/app/Listeners/CommitteeCreatedListener.php',
         'App\\Listeners\\CommitteeUpdatedListener' => __DIR__ . '/../..' . '/app/Listeners/CommitteeUpdatedListener.php',
         'App\\Listeners\\EventListener' => __DIR__ . '/../..' . '/app/Listeners/EventListener.php',

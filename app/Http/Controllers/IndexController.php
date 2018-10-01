@@ -15,6 +15,11 @@ use App\Committee_type as Committee_type;
 use App\Meaasge as Message;
 use App\ITFest5Cover as ITFestCover;
 use App\ITFest5Guest as ITFestGuest;
+use App\ITFest5Registration as ITFestRegistration;
+use Illuminate\Support\Facades\Redirect;
+
+use Carbon\Carbon;
+use Image;
 
 
 class IndexController extends Controller
@@ -119,5 +124,77 @@ class IndexController extends Controller
 
     public function storeItFest5(Request $request){
         
+        $this->validate($request,array(
+            'event'             => 'required',
+            'team'              => 'required|max:255',
+            'member1'           => 'sometimes|max:255',
+            'member2'           => 'sometimes|max:255',
+            'member3'           => 'sometimes|max:255',
+            'member4'           => 'sometimes|max:255',
+            'institution'       => 'required|max:255',
+            'class'             => 'required|max:255',
+            'address'           => 'required|max:255',
+            'mobile'            => 'required|integer',
+            'emergencycontact'  => 'required|integer',
+            'image'             => 'required|image|max:300'
+        ));
+
+        $registration = new ITFestRegistration();
+
+        $event = explode(',', $request->event);
+        $registration->event_id = $event[0];
+        $registration->event_name = $event[1];
+        
+        $registration->team = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->team)));
+        $registration->member1 = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->member1)));
+        $registration->member2 = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->member2)));
+        $registration->member3 = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->member3)));
+        $registration->member4 = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->member4)));
+        $registration->institution = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->institution)));
+        $registration->class = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->class)));
+        $registration->address = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->address)));
+        $registration->mobile = $request->mobile;
+        $registration->emergencycontact = $request->emergencycontact;
+        
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $nowdatetime = Carbon::now();
+            $filename   = str_replace(' ','',$registration->team).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/registration/'. $filename);
+
+            Image::make($image)->resize(200, 200)->save($location);
+            /*Image::make($image)->resize(300, 300, function ($constraint) {
+            $constraint->aspectRatio();
+            })->save($location);*/
+
+            $registration->imagepath = $filename;
+        }
+        
+        $length = 6;
+        $pool = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $random_string = substr(str_shuffle(str_repeat($pool, 6)), 0, $length);
+        $registration->registration_id = $event[0].$random_string;
+        
+        // amounts to register
+        $amounts=array("1"=>"1500","2"=>"2000","3"=>"200","4"=>"1600","5"=>"300","6"=>"500","7"=>"2000");
+
+        if($amounts[$event[0]]) {
+            $registration->amount = $amounts[$event[0]];
+        }
+        $registration->payment_status = 0;
+        //dd($registration);
+        $registration->save();
+
+        Session::flash('success','Registration is complete!');
+        Session::flash('warning','You need to make the payment');
+        return redirect(Route('it.Fest5.payorcheck', $registration->registration_id));
+        
+
+    }
+
+    public function payorcheckItFest5($registration_id){
+        $registration = ITFestRegistration::where('registration_id', $registration_id)->first();
+        return view('itFest5.payment')->withRegistration($registration);
     }
 }
