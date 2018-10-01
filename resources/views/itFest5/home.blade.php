@@ -308,11 +308,11 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Mobile No:</label>
-                    <input type="number" class="form-control" placeholder="" required name="mobile" value="{{ old('mobile') }}">
+                    <input type="text" class="form-control" placeholder="" required name="mobile" value="{{ old('mobile') }}">
                 </div>
                 <div class="form-group">
                     <label class="control-label">Emergency Contact No:</label>
-                    <input type="number" class="form-control" placeholder="" required name="emergencycontact" value="{{ old('emergencycontact') }}">
+                    <input type="text" class="form-control" placeholder="" required name="emergencycontact" value="{{ old('emergencycontact') }}">
                 </div>
                 <div class="form-group"><label class="control-label">Photo of Applicant (300x300)</label>
                     <input type="file" name="image" accept="image/*" required>
