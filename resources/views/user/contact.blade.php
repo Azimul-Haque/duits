@@ -48,8 +48,6 @@
                                     <li><a href="#"><i class="icon-s-gplus"></i></a></li>
                                     <li><a href="#"><i class="icon-s-twitter"></i></a></li>
                                     <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="icon-s-behance"></i></a></li>
-                                    <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
                                 </ul>
                             </div>
                         </div>

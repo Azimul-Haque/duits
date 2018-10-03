@@ -18,6 +18,7 @@
       <link href="/css/user/aos.css" rel="stylesheet">
       <link href="/css/user/custom.css" rel="stylesheet">
       <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
       <link href="http://fonts.googleapis.com/css?family=Lato:400,900,300,700" rel="stylesheet">
       <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel="stylesheet">
       <!-- Toastr style -->
@@ -31,6 +32,21 @@
 <body>
       <header>
             <div class="navbar">
+            <div class="navbar-header">
+               <div class="container">
+                  <ul class="info pull-left">
+                     <li><a href="#" style="color:white;"><i class="icon-mail-1 contact"></i> admin@duits-bd.org</a></li>
+                     <li style="color:white;"><i class="icon-mobile contact"></i> +8801923734867</li>
+                  </ul>
+                  <ul class="social pull-right">
+                     <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+                     <li><a href="#"><i class="icon-s-gplus"></i></a></li>
+                     <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+                     <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
+                  </ul>
+                  <a class="navbar-brand" href="/"><img src="/images/logo.png" class="logo" alt=""></a><a class="navbar-toggle btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
+               </div>
+            </div>
                   <div class="yamm">
                         <div class="navbar-collapse collapse">
                               <div class="container">
@@ -56,7 +72,7 @@
                                                             @endforeach
                                                 </ul>
                                           </li>
-                                          <li class="dropdown">
+                                          <!-- <li class="dropdown">
                                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                                                       <i class="icon-down-open-1"> </i>More</a>
                                                 <ul class="dropdown-menu">
@@ -70,12 +86,21 @@
                                                             <a href="/notice">Notice</a>
                                                       </li>
                                                 </ul>
-                                          </li>
+                                          </li>-->
+                                          <li>
+                                                            <a href="/news">News</a>
+                                                      </li>
+                                                      <li>
+                                                            <a href="/events">Events</a>
+                                                      </li>
+                                                      <li>
+                                                            <a href="/notice">Notice</a>
+                                                      </li>
                                           <li class="dropdown">
                                                 <a href="{{Route('user.contact')}}">Contact Us</a>
                                           </li>
                                           <li class="dropdown">
-                                                <a href="/it-fest-5">DUITS 5th IT Fest</a>
+                                                <a href="/it-fest-5" style="color: chartreuse;">DUITS 5th IT Fest</a>
                                           </li>
                                           <li class="dropdown pull-right searchbox">
                                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
@@ -145,12 +170,12 @@
                               <h4>Get In Touch</h4>
                               <ul class="contacts">
                                     <li>
-                                          <i class="icon-location contact"></i> 84 Street, City, State 24813</li>
+                                          <i class="icon-location contact"></i> TSC, University of Dhaka</li>
                                     <li>
-                                          <i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
+                                          <i class="icon-mobile contact"></i> +8801923734867</li>
                                     <li>
                                           <a href="#">
-                                                <i class="icon-mail-1 contact"></i> info@reen.com</a>
+                                                <i class="icon-mail-1 contact"></i> admin@duits-bd.org</a>
 </li>
 </ul>
 </div>

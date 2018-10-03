@@ -42,7 +42,7 @@ iframe{
 	-webkit-backface-visibility:hidden
 }
 body{
-	font-family: 'times new roman',sans-serif;
+	font-family: 'Roboto Mono';
 	background-color:#283645;
 	color:#73879c;
 	font-size:18px;
@@ -95,7 +95,7 @@ a:hover,a:focus{
 	text-decoration:none
 }
 h1,h2,h3,h4,h5,h6{
-	font-family:'Lato',sans-serif;
+	font-family: 'Roboto Mono';
 	font-weight:700;
 	letter-spacing:.025em;
 	color:#506a85;
@@ -226,9 +226,7 @@ footer ul.contacts li{
 	-o-transition:font 200ms ease-out;
 	transition:font 200ms ease-out
 }
-#hero #owl-main .caption h1.light-bg,#hero #owl-main .caption h1.medium-bg,#hero #owl-main .caption h1.dark-bg,#hero #owl-main .caption h1.tint-bg{
-	font-size:73px
-}
+
 #hero h4{
 	font-size:33px;
 	line-height:120%
@@ -399,18 +397,7 @@ main header+*{
 .center-block{
 	float:none
 }
-.height-xs{
-	height:30vh
-}
-.height-sm{
-	height:44vh
-}
-.height-md{
-	height:61vh
-}
-.height-lg{
-	height:90vh
-}
+
 .dropcap{
 	float:left;
 	display:inline-block;
@@ -771,7 +758,7 @@ iframe+iframe{
 	background-color:#f2f5f7
 }
 .dark-bg{
-	background-color:#2f4052
+	background-color:rgb(73, 29, 116);
 }
 .dark-bg,.dark-bg p,.dark-bg .item-details li:before{
 	color:#a3b1bf
@@ -787,9 +774,6 @@ iframe+iframe{
 	color:#FFF;
 	padding:2px 8px;
 	margin-top:-2px
-}
-.tint-bg,.tint-bg h1,.tint-bg h2,.tint-bg h3,.tint-bg h4,.tint-bg p,.tint-bg .item-details li:before,.tint-bg .icon i.icn{
-	color:#FFF
 }
 .tint-bg a:hover{
 	color:#506a85
@@ -927,8 +911,8 @@ footer p{
 	display:none
 }
 .footer-bottom{
-	background:#283645;
-	color:#707e8c
+	background:#270e54;
+	color:white;
 }
 .footer-bottom .container.inner{
 	padding-top:30px;
@@ -1160,7 +1144,7 @@ aside .thumb figure{
 .navbar-header{
 	float:none!important;
 	position:relative;
-	background:#f5f7fa;
+	background:#270e54;
 	border-bottom:1px solid #e6e9ed;
 	z-index:0
 }
@@ -1170,7 +1154,7 @@ aside .thumb figure{
 	height:40px
 }
 .navbar-collapse{
-	background-color:rgba(255,255,255,1);
+	background-color:rgb(73, 29, 116);
 	width:100%;
 	padding-top:30px;
 	padding-bottom:30px;
@@ -1184,7 +1168,7 @@ aside .thumb figure{
 	-moz-transition:none
 }
 .navbar-collapse.collapse.animate-after{
-	background-color:rgba(255,255,255,0.97)
+	background-color:rgb(73, 29, 116);
 }
 .navbar-nav{
 	float:none;
@@ -1198,7 +1182,7 @@ aside .thumb figure{
 	line-height:20px;
 	font-weight:700;
 	text-transform:uppercase;
-	color:#506a85;
+	color:white;
 	padding:15px 20px;
 	border:1px solid rgba(255,255,255,0);
 	border-radius:3px;
@@ -1261,7 +1245,7 @@ aside .thumb figure{
 .navbar .dropdown-menu:not(.yamm-dropdown-menu) li a{
 	line-height:18px;
 	padding:13px 20px;
-	color:#73879c;
+	color:rgb(73, 29, 116);
 	text-transform:uppercase;
 	font-weight:700;
 	white-space:normal
@@ -2836,8 +2820,8 @@ blockquote:before{
 	box-decoration-break:clone
 }
 #owl-main .caption h1.dark-bg span,#owl-main .caption p.dark-bg span{
-	background:#506a85;
-	box-shadow:-.500em 0 0 #506a85,.500em 0 0 #506a85;
+	background:#491d74;
+	box-shadow:-.500em 0 0 #491d74,.500em 0 0 #491d74;
 	-webkit-box-decoration-break:clone;
 	box-decoration-break:clone
 }
@@ -4355,7 +4339,7 @@ input:focus:-ms-input-placeholder{
 		display:none
 }
 	.navbar-header{
-		background:#FFF;
+		background:#481c75;
 		padding:25px 0
 }
 	.btn.responsive-menu{
@@ -4367,7 +4351,7 @@ input:focus:-ms-input-placeholder{
 }
 	.navbar-collapse{
 		position:static!important;
-		background:#f5f7fa;
+		background:#481c75;
 		max-height:inherit;
 		padding-top:0;
 		padding-bottom:0
@@ -4593,10 +4577,10 @@ input:focus:-ms-input-placeholder{
 		padding-bottom:40px
 }
 	.height-xs,.height-sm,.height-md,.height-lg,#owl-main .item,#owl-main.height-md .item,#owl-main.height-lg .item{
-		height:88vh
+		h
 }
 	#hero h1{
-		font-size:38px;
+		font-size:22px;
 		line-height:115%;
 		letter-spacing:.031em
 }
@@ -4605,9 +4589,7 @@ input:focus:-ms-input-placeholder{
 		line-height:135%;
 		margin-top:15px
 }
-	#hero #owl-main .caption h1.light-bg,#hero #owl-main .caption h1.medium-bg,#hero #owl-main .caption h1.dark-bg,#hero #owl-main .caption h1.tint-bg{
-		font-size:33px
-}
+	
 	#hero .btn{
 		margin-top:25px
 }
@@ -5069,4 +5051,10 @@ a.changecolor{
 .btn-default {
 	color: #222222 !important;
 	background: #DDD !important;
+}
+
+@media(max-width:450px){
+	.caption h1 {
+		font-size: 20px;
+	}
 }
