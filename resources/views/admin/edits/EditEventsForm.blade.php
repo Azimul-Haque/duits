@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Photos</label>
-                            <div class="col-sm-10"><input type="file" class="form-control" placeholder="" name="photos[]" multiple></div>
+                            <div class="col-sm-10"><input type="file" class="form-control" placeholder="" name="image"></div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10"><input type="date" class="form-control" placeholder="" name="date" value="{{$event->date}}"></div>
@@ -40,7 +40,11 @@
 @section('script')
     <script>
         $(document).ready(function(){
-            $('.summernote').summernote();
+            $('.summernote').summernote({
+                placeholder: 'Enter Description',
+                tabsize: 2,
+                height: 200
+            });
         });
     </script>
 @endsection

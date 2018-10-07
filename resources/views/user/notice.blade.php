@@ -18,7 +18,7 @@
                                         ?></span></div>
                             </div>
                             <div class="post-content">
-                                <h2 class="post-title"><a href="/detail/news/{{$item->headline}}">{{$item->headline}}</a></h2>
+                                <h2 class="post-title"><a href="/detail/notice/{{$item->id}}">{{$item->headline}}</a></h2>
                                 <p>{{$item->body}}</p>
                             </div>
                         </div>

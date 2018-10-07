@@ -62,7 +62,7 @@ class IndexController extends Controller
 
 
     public function showEvents(){
-        $events = Events::with('events_image')->orderBy('id','DESC')->paginate(3);
+        $events = Events::orderBy('id','DESC')->paginate(3);
         return view('user.events',['events' => $events]);
     }
 
@@ -77,9 +77,8 @@ class IndexController extends Controller
     }
 
     public function showEventDetails(Request $request){
-    $event = Events::with('events_image')->find($request->id);
-    //return $event;
-    return view('user.eventDetail',['event' => $event]);
+        $event = Events::find($request->id);
+        return view('user.eventDetail',['event' => $event]);
     }
 
     public function showNoticeDetails(Request $request){
@@ -134,8 +133,8 @@ class IndexController extends Controller
             'institution'       => 'required|max:255',
             'class'             => 'required|max:255',
             'address'           => 'required|max:255',
-            'mobile'            => 'required|integer',
-            'emergencycontact'  => 'required|integer',
+            'mobile'            => 'required|numeric',
+            'emergencycontact'  => 'required|numeric',
             'image'             => 'required|image|max:300'
         ));
 

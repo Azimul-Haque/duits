@@ -19,22 +19,24 @@
                                 </div>
                                 <div class="post-content">
                                     <figure class="icon-overlay icn-link post-media">
-                                        <a href="/detail/news/{{$item->headline}}">
+                                        <a href="/detail/event/{{$item->id}}">
                                             <?php
-                                            if(sizeof($item->broadcasts_image)>0){
-                                                $path = $item->broadcasts_image[0]->path;
-                                            }
-                                            else $path ="default.jpg";
+                                                if(!$item->imagepath == NULL){
+                                                    $path = $item->imagepath;
+                                                }
+                                                else {
+                                                    $path ="default.jpg";
+                                                }
                                             ?>
                                             <img src="/images/events/{{$path}}" alt=""></a>
                                     </figure>
-                                    <h2 class="post-title"><a href="/detail/events/{{$item->headline}}">{{$item->headline}}</a></h2>
+                                    <h2 class="post-title"><a href="/detail/event/{{$item->id}}">{{$item->headline}}</a></h2>
                                     <p>
                                         <?php
                                         echo $item->body;
                                         ?>
                                     </p>
-                                    <a href="/detail/news/{{$item->headline}}" class="btn">Read more</a>
+                                    <a href="/detail/event/{{$item->id}}" class="btn">Read more</a>
                                 </div>
                             </div>
                         @endforeach

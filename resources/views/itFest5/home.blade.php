@@ -307,12 +307,12 @@
                     <input type="text" class="form-control" placeholder="" required name="address" value="{{ old('address') }}">
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Mobile No:</label>
-                    <input type="text" class="form-control" placeholder="" required name="mobile" value="{{ old('mobile') }}">
+                    <label class="control-label">Mobile No: (11 digit number)</label>
+                    <input type="text" class="form-control" placeholder="" required name="mobile" value="{{ old('mobile') }}" pattern="\d*" maxlength="11">
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Emergency Contact No:</label>
-                    <input type="text" class="form-control" placeholder="" required name="emergencycontact" value="{{ old('emergencycontact') }}">
+                    <label class="control-label">Emergency Contact No: (11 digit number)</label>
+                    <input type="text" class="form-control" placeholder="" required name="emergencycontact" value="{{ old('emergencycontact') }}" pattern="\d*" maxlength="11">
                 </div>
                 <div class="form-group"><label class="control-label">Photo of Applicant (300x300)</label>
                     <input type="file" name="image" accept="image/*" required>

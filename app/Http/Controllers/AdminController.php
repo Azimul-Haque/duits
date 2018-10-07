@@ -55,8 +55,8 @@ class AdminController extends Controller
     }
 
     public function ShowDashboard(){
-        $news = News::with('broadcasts_image')->orderBy('id','DESC')->get();
-        $events = Events::with('events_image')->orderBy('id','DESC')->get();
+        $news = News::orderBy('id','DESC')->get();
+        $events = Events::orderBy('id','DESC')->get();
         $notice = Notices::orderBy('id','DESC')->get();
         $committees = Committee_type::with('committee')->orderBy('id','DESC')->get();
         return view('admin.dashboard',['news' => $news, 'events'=>$events, 'notice'=>$notice, 'committees'=>$committees]);
@@ -138,7 +138,7 @@ class AdminController extends Controller
     }
 
     public function showEditNewsForm(Request $request){
-        $news = News::with('broadcasts_image')->orderBy('id','DESC')->find($request->id);
+        $news = News::orderBy('id','DESC')->find($request->id);
 
         return view('admin.edits.EditNewsForm',['news' =>$news]);
     }
@@ -202,12 +202,6 @@ class AdminController extends Controller
         $notice = Notices::find($request->id);
         $notice->headline = trim($request->headline);
         $notice->body = trim($request->body);
-        if($request->hasFile('photo')){
-            $file = $request->file('photo');
-            $fileName = time().$request->file('photo')->getClientOriginalName();
-            $file->move(public_path('/uploads/notice'), $fileName);
-            $notice->photo = $fileName;
-        }
         $notice->save();
         Session::flash('success','Successfully Edited');
         return redirect(Route('admin.dashboard'));
@@ -262,7 +256,7 @@ class AdminController extends Controller
     }
 
     public function showEditEventsForm(Request $request){
-        $event = Events::with('events_image')->find($request->id);
+        $event = Events::find($request->id);
         return view('admin.edits.editEventsForm',['event' =>$event]);
     }
 
@@ -270,28 +264,35 @@ class AdminController extends Controller
         $this->validate($request,array(
             'headline' => 'required|max:500',
             'body' => 'required',
-            'date' => 'required'
+            'date' => 'required',
+            'image' => 'sometimes|image|max:300'
         ));
 
-        $events = Events::find($request->id);
-        $events->headline = $request->headline;
-        $events->body = $request->body;
-        $events->date = $request->date;
-        $events->save();
+        $event = Events::find($request->id);
+        $event->headline = $request->headline;
+        $event->body = $request->body;
+        $event->date = $request->date;
 
-        $events = Events::orderBy('id','DESC')->first();
-        if($request->hasFile('photos')){
-            $counter =1;
-            foreach($request->photos as $item){
-                $fileName = time().$counter.$item->getClientOriginalName();
-                $item->move(public_path('/uploads/events'),$fileName);
-                $counter++;
-                $image =  new Events_image();
-                $image->path = $fileName;
-                $events->events_image()->save($image);
+        // image upload
+        if(!$event->imagepath == NULL){
+            if($request->hasFile('image')) {
+                $image      = $request->file('image');
+                $filename   = $event->imagepath;
+                $location   = public_path('images/events/'. $filename);
+                Image::make($image)->resize(500, 333)->save($location);
+                $event->imagepath = $filename;
+            }
+        } else {
+            if($request->hasFile('image')) {
+                $image      = $request->file('image');
+                $nowdatetime = Carbon::now();
+                $filename   = str_replace(' ','',$event->headline).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
+                $location   = public_path('images/events/'. $filename);
+                Image::make($image)->resize(500, 333)->save($location);
+                $event->imagepath = $filename;
             }
         }
-
+        $event->save();
         Session::flash('success','Successfully Edited');
         return redirect(Route('admin.dashboard'));
     }
@@ -312,27 +313,31 @@ class AdminController extends Controller
         $this->validate($request,array(
             'headline' => 'required|max:500',
             'body' => 'required',
-            'date' => 'required'
+            'date' => 'required',
+            'image' => 'sometimes|image|max:300'
         ));
 
-        $events = new Events();
-        $events->headline = $request->headline;
-        $events->body = $request->body;
-        $events->date = $request->date;
-        $events->save();
+        $event = new Events();
+        $event->headline = $request->headline;
+        $event->body = $request->body;
+        $event->date = $request->date;
+        
+        // image upload
+        if($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $nowdatetime = Carbon::now();
+            $filename   = str_replace(' ','',$event->headline).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/events/'. $filename);
 
-        $events = Events::orderBy('id','DESC')->first();
-        if($request->hasFile('photos')){
-            $counter =1;
-            foreach($request->photos as $item){
-                $fileName = time().$counter.$item->getClientOriginalName();
-                $item->move(public_path('/uploads/events'),$fileName);
-                $counter++;
-                $image =  new Events_image();
-                $image->path = $fileName;
-                $events->events_image()->save($image);
-            }
+            Image::make($image)->resize(500, 333)->save($location);
+            /*Image::make($image)->resize(300, 300, function ($constraint) {
+            $constraint->aspectRatio();
+            })->save($location);*/
+
+            $event->imagepath = $filename;
         }
+
+        $event->save();
 
         Session::flash('success','Successfully Saved');
         return redirect(Route('admin.dashboard'));
@@ -351,12 +356,6 @@ class AdminController extends Controller
         $notice = new Notices();
         $notice->headline = trim($request->headline);
         $notice->body = trim($request->body);
-        if($request->hasFile('photo')){
-            $file = $request->file('photo');
-            $fileName = time().$request->file('photo')->getClientOriginalName();
-            $file->move(public_path('/uploads/notice'), $fileName);
-            $notice->photo = $fileName;
-        }
         $notice->save();
         Session::flash('success','Successfully Saved');
         return redirect(route('admin.dashboard'));

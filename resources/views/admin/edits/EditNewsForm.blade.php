@@ -39,7 +39,11 @@
 @section('script')
     <script>
         $(document).ready(function(){
-            $('.summernote').summernote();
+            $('.summernote').summernote({
+                placeholder: 'Enter Description',
+                tabsize: 2,
+                height: 200
+            });
         });
     </script>
 @endsection
