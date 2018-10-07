@@ -51,6 +51,7 @@ class AdminController extends Controller
     public function deleteCommittee(Request $request){
         $committee = Committee_type::find($request->id);
         $committee->delete();
+        Session::flash('success','Successfully Deleted');
         return redirect()->back();
     }
 

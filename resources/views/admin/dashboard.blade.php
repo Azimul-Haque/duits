@@ -153,7 +153,7 @@
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->description}}</td>
                                         <td>
-                                            <a href="/delete/committee/{{$item->id}}" class="btn btn-danger" data-toggle="confirmation"><span><i class="fa fa-trash"></i></span></a>
+                                            <a href="/admin/delete/committee/{{$item->id}}" class="btn btn-danger" data-toggle="confirmation"><span><i class="fa fa-trash"></i></span></a>
                                             <button data-toggle="modal" data-target="#editCommitteeModal_{{$item->id}}" class="btn btn-info"><i class="fa fa-edit"></i></button>
                                         </td>
                                     </tr>
