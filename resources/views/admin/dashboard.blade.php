@@ -277,7 +277,6 @@
             </div>
         </div>
         @endforeach
-    Try it Yourself »
 
 @endsection
 @section('script')
