@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function (){
 Auth::routes();
 Route::post('/admin/login','Auth\AdminLoginController@login')->name('admin.login.submit');
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('login');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function () {
     Route::get('/dashboard', 'AdminController@ShowDashboard')->name('admin.dashboard');
 
