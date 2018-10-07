@@ -95,7 +95,7 @@
             <div class="pull-right">
             </div>
             <div>
-                <strong>Copyright</strong> Jagannath Hall &copy; 2018
+                <strong>Copyright</strong> DUITS. &copy; 2018
             </div>
         </div>
 
