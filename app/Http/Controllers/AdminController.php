@@ -371,7 +371,7 @@ class AdminController extends Controller
         $cover->title = trim($request->title);
         if($request->hasFile('photo')){
             $file = $request->file('photo');
-            $fileName = time().$request->file('photo')->getClientOriginalName();
+            $fileName = str_replace(' ','',$request->title).time().'.' . $file->getClientOriginalExtension();
             $file->move(public_path('/uploads/itFest5/cover/'), $fileName);
             $cover->image = $fileName;
         }
@@ -391,7 +391,7 @@ class AdminController extends Controller
         $guest->designation = trim($request->designation);
         if($request->hasFile('photo')){
             $file = $request->file('photo');
-            $fileName = time().$request->file('photo')->getClientOriginalName();
+            $fileName = str_replace(' ','',$request->name).time().'.' . $file->getClientOriginalExtension();
             $file->move(public_path('/uploads/itFest5/guest/'), $fileName);
             $guest->photo = $fileName;
         }

@@ -4,6 +4,21 @@
 @endsection
 @section('content')    
     
+<section id="hero">
+<div id="owl-main" class="owl-carousel height-md owl-inner-nav owl-ui-lg">
+    @foreach($covers as $item)
+    <div class="item" style="background-image: url(/uploads/itFest5/cover/<?php echo $item->image; ?>);">
+        <div class="container">
+            <div class="caption vertical-center text-center">
+                <h1 class="fadeInRight-1 dark-bg light-color" style="left: -15px;">
+                    <span>{{$item->title}}</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+</section>
 
 <section id="team" class="">    
     <div class="container inner-top inner-bottom-sm">

@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th>Team</th>
-                                <th>Registration ID</th>
+                                <th>Registration Id</th>
                                 <th>Event</th>
                                 <th>Amount</th>
                                 <th>Payment Status</th>

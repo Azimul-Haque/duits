@@ -214,6 +214,11 @@ class IndexController extends Controller
      */
     public function checkBkashTrxId(Request $request)
     {
+        $this->validate($request,array(
+            'registration_id' => 'required',
+            'trxid'           => 'required'
+        ));
+
         $transactionId = $request->trxid;
         $data = [
             'user' => 'teasdasd',
