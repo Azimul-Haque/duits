@@ -27,6 +27,8 @@
                 <header>5th National
                 <h1>DUITS Campus IT Fest 2018</h1>
                 </header>
+                <a href="{{ asset('files/Call_For_Participation.pdf') }}" target="_blank" title="View or Download the Call For Participation PDF file"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+ Call For Participation</a>
             </div>
         </div>
         <div class="row inner-top-sm">
