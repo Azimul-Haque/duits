@@ -39,7 +39,7 @@
                      <li style="color:white;"><i class="icon-mobile contact"></i> +8801923734867</li>
                   </ul>
                   <ul class="social pull-right">
-                     <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+                     <li><a href="https://www.facebook.com/Dhaka.University.IT.Society.DUITS" target="_blank"><i class="icon-s-facebook"></i></a></li>
                      <li><a href="#"><i class="icon-s-gplus"></i></a></li>
                      <li><a href="#"><i class="icon-s-twitter"></i></a></li>
                      <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
@@ -130,7 +130,7 @@
                               <div class="social-network" style="padding-top: 0px;">
                                     <ul class="social">
                                           <li>
-                                                <a href="#">
+                                                <a href="https://www.facebook.com/Dhaka.University.IT.Society.DUITS" target="_blank">
                                                       <i class="icon-s-facebook"></i>
                                                 </a>
                                           </li>
@@ -156,13 +156,13 @@
                               <h4>Menu</h4>
                               <ul class="" style="padding-left: 0px;">
                                     <li>
-                                          <a href="index-2.html">Home</a>
+                                          <a href="{{ url('/') }}">Home</a>
                                     </li>
                                     <li>
-                                          <a href="about.html">About</a>
+                                          <a href="{{ url('/news') }}">News</a>
                                     </li>
                                     <li>
-                                          <a href="contact.html">Contact</a>
+                                          <a href="{{ url('/contact') }}">Contact</a>
                                     </li>
                               </ul>
                         </div>
