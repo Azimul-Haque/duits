@@ -18,6 +18,7 @@
                                 <th>Institution</th>
                                 <th>Mobile</th>
                                 <th>Amount</th>
+                                <th>TrxId</th>
                                 <th>Payment Status</th>
                                 <th>Image</th>
                             </tr>
@@ -31,6 +32,7 @@
                                         <td>{{ $registration->institution }}</td>
                                         <td>{{ $registration->mobile }}</td>
                                         <td>{{ $registration->amount }} /-</td>
+                                        <td>{{ $registration->trxid }}</td>
                                         <td>
                                             @if($registration->payment_status == 0)
                                                 Not Paid

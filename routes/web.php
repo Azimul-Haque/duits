@@ -32,6 +32,7 @@ Route::get('/admin/check/committee','AdminController@checkCommitteeExistence');
 Route::get('/it-fest-5','IndexController@showItFest5')->name('user.it.Fest5');
 Route::post('/it-fest-5','IndexController@storeItFest5')->name('it.Fest5.store');
 Route::get('/it-fest-5/registration/{registration_id}','IndexController@payorcheckItFest5')->name('it.Fest5.payorcheck');
+Route::post('/it-fest-5/bkash/','IndexController@checkBkashTrxId')->name('it.Fest5.chekcbkash');
 
 
 Route::group(['middleware' => 'auth'], function (){

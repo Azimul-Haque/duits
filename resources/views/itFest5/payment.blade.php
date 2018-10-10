@@ -42,7 +42,34 @@
                     </table>
                 </div>
                 @if($registration->payment_status == 0)
-                    <h3>Pay Tk. {{ $registration->amount }}/- following this process...</h3>
+                    <center>
+                        <h3>Pay Tk. {{ $registration->amount }}/- following this process...</h3>
+                    </center>
+                    <div class="row">
+                        <div class="col-md-8" style="font-size: 14px;">
+                            <p>01. Go to your bKash Mobile Menu by dialing *247#<br />
+                            02. Choose “Payment”<br />
+                            03. Enter the Merchant bKash Account Number: 017*******<br />
+                            04. Enter the amount: {{ $registration->amount }}<br />
+                            05. Enter reference: 1<br />
+                            06. Enter Counter Number: 1<br />
+                            07. Now enter your bKash Mobile Menu PIN to confirm<br />
+                            08. Put Registration Id and TrxId in the box and 
+                            <br /><br />
+                            Done! You will receive a confirmation message from bKash and a Registration Receipt here.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <form method="post" action="{{Route('it.Fest5.chekcbkash')}}" class="bkashform">
+                                {{csrf_field()}}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Registration Id" required name="registration_id">
+                                    <input type="text" class="form-control" placeholder="Transaction Id" required name="trxid">
+                                    <button type="submit" class="btn btn-w-m btn-primary">Check Payment</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
                 @elseif($registration->payment_status == 1)
                     <h3>Download the Registration Receipt</h3>
                 @endif

@@ -15,23 +15,7 @@
             </div>
         </div>
         <div class="row inner-top-sm">
-            <div class="col-md-4">
-                <div class="panel panel-success">
-                  <div class="panel-heading text-center">Apps in Life: Mobile Application Development Contest</div>
-                  <div class="panel-body">
-                      Each team will be represented by 2-3 members.
-                      Smart devices should be carried out by the participants.
-                      Each team will get 10 minutes for presentation where 2 minutes will be for question-answer.<br/>
-                      <u>Focus Point:</u> Concept, User Friendliness, Social Impact
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-success">
-                  <div class="panel-heading text-center">Panel Heading</div>
-                  <div class="panel-body">Panel Content</div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -81,7 +65,7 @@
                 <div class="tabs tabs-reasons tabs-circle-top tab-container">
                 <ul class="etabs text-center">
                     <li class="tab">
-                        <a href="#tab-1">                                 
+                        <a href="#tab-1">
                             Day 01
                         </a>
                     </li>

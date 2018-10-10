@@ -5058,3 +5058,9 @@ a.changecolor{
 		font-size: 20px;
 	}
 }
+
+
+.bkashform {
+	border: 1px solid #ddd;
+	padding: 15px;
+}

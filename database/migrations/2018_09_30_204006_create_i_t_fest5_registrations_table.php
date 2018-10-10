@@ -30,6 +30,7 @@ class CreateITFest5RegistrationsTable extends Migration
             $table->string('emergencycontact');
             $table->string('imagepath');
             $table->string('amount');
+            $table->string('trxid');
             $table->integer('payment_status', 1);
             $table->timestamps();
         });
