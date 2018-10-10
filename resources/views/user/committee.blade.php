@@ -18,7 +18,7 @@
             <div class="row inner-top-sm text-center">
                 @if(sizeof($committees)>0)
                     @foreach($committees as $member)
-                        <div class="col-sm-4 inner-bottom-sm inner-left inner-right">
+                        <div class="col-sm-4 inner-bottom-sm inner-left inner-right" style="min-height: 490px;">
                             <figure class="member">
                                 <div class="icon-overlay icn-link">
                                     <a href="javascript:void(0);">

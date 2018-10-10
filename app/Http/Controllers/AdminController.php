@@ -408,6 +408,19 @@ class AdminController extends Controller
             $file->move(public_path('/uploads/itFest5/cover/'), $fileName);
             $cover->image = $fileName;
         }
+        // image upload
+        if($request->hasFile('photo')) {
+            $image      = $request->file('photo');
+            $nowdatetime = Carbon::now();
+            $filename   = str_replace(' ','',$event->headline).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('images/events/'. $filename);
+
+            Image::make($image)->resize(500, 333)->save($location);
+            /*Image::make($image)->resize(300, 300, function ($constraint) {
+            $constraint->aspectRatio();
+            })->save($location);*/
+            $event->imagepath = $filename;
+        }
         $cover->save();
         Session::flash('success','Successfully Saved');
         return redirect(route('admin.itFest5'));
