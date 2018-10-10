@@ -36,21 +36,20 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                             </span>
+                    <div class="dropdown profile-element">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Name</strong>
-                                </span> <span class="text-muted text-xs block">Admin</span></span></a>
+                            <img src="{{ asset('/images/logo.png') }}" style="width: 50px; margin-right:20px;">{{ ucwords(Auth::user()->name) }}
+                        </a>
                     </div>
 
                 </li>
                 <li>
-                    <a href="{{Route('admin.dashboard')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Home</span></a>
-                    <a href="{{Route('admin.add.committee.member')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Committee</span></a>
-                    <a href="{{Route('admin.notice.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Notice</span></a>
-                    <a href="{{Route('admin.news.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">News</span></a>
-                    <a href="{{Route('admin.events.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Events</span></a>
-                    <a href="{{Route('admin.itFest5')}}"><i class="fa fa-diamond"></i> <span class="nav-label">5th IT Fest</span></a>
+                    <a href="{{Route('admin.dashboard')}}"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
+                    <a href="{{Route('admin.add.committee.member')}}"><i class="fa fa-users"></i> <span class="nav-label">Committee</span></a>
+                    <a href="{{Route('admin.notice.add')}}"><i class="fa fa-bell"></i> <span class="nav-label">Notice</span></a>
+                    <a href="{{Route('admin.news.add')}}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">News</span></a>
+                    <a href="{{Route('admin.events.add')}}"><i class="fa fa-calendar-check-o"></i> <span class="nav-label">Events</span></a>
+                    <a href="{{Route('admin.itFest5')}}"><i class="fa fa-trophy"></i> <span class="nav-label">5th IT Fest</span></a>
                 </li>
             </ul>
 
