@@ -87,6 +87,7 @@ class AdminController extends Controller
             'name' => 'required|max:255',
             'designation' => 'required',
             'status' => 'required',
+            'type' => 'required',
             'pic' => 'mimes:jpeg,bmp,png,jpg|max:10000'
         ));
         $committee = new Committee();
@@ -98,14 +99,17 @@ class AdminController extends Controller
         $committee->twitter = trim($request->twitter);
         $committee->committee_type_id = $request->type;
 
-        if($request->hasFile('pic')){
-            $file = $request->file('pic');
-            $fileName = time().$request->file('pic')->getClientOriginalName();
-            $file->move(public_path('/images/committees'), $fileName);
-            $committee->photo = $fileName;
+        // image upload
+        if($request->hasFile('pic')) {
+            $image      = $request->file('pic');
+            $filename   = str_replace(' ','',$committee->name).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/committees/'. $filename);
+            Image::make($image)->resize(200, 200)->save($location);
+            $committee->photo = $filename;
         }
+
         $committee->save();
-        Session::flash('success','Successfully Saved');
+        Session::flash('success','Member Successfully Saved');
         return redirect()->back();
     }
 
@@ -251,12 +255,16 @@ class AdminController extends Controller
         $committee->g_plus = trim($request->g_plus);
         $committee->twitter = trim($request->twitter);
 
-        if($request->hasFile('pic')){
-            $file = $request->file('pic');
-            $fileName = time().$request->file('pic')->getClientOriginalName();
-            $file->move(public_path('/images/committees/'), $fileName);
-            $committee->photo = $fileName;
+        // image upload
+        if($request->hasFile('pic')) {
+            $image      = $request->file('pic');
+            $nowdatetime = Carbon::now();
+            $filename   = str_replace(' ','',$request->name).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/committees/'. $filename);
+            Image::make($image)->resize(200, 200)->save($location);
+            $committee->photo = $filename;
         }
+
         $committee->save();
         Session::flash('success','Successfully Edited');
         return redirect()->back();

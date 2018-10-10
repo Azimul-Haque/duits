@@ -22,7 +22,16 @@
                             <figure class="member">
                                 <div class="icon-overlay icn-link">
                                     <a href="javascript:void(0);">
-                                        <img src="/images/committees/{{$member->photo}}" class="img-circle">
+                                        @if($member->photo != NULL)
+                                            @if (file_exists(public_path('images/committees/'. $member->photo)))
+                                            <img src="/images/committees/{{$member->photo}}" class="img-circle">
+                                            @else
+                                                <img src="/images/committees/default.jpg" class="img-circle">
+                                            @endif
+                                        @else
+                                            <img src="/images/committees/default.jpg" class="img-circle">
+                                        @endif
+                                        
                                     </a>
                                 </div>
                                 <figcaption>
@@ -68,7 +77,6 @@
                        SORRY NO COMMITTEE MEMBER FOUND
                     @endif
             </div>
-            <center> {{$committees->links()}}</center>
         </div>
     </section>
 
