@@ -81,7 +81,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                             <h3>First Half</h3>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-schedule">
                                 <thead>
                                     <tr>
                                     <th>Time Slot</th>
@@ -115,7 +115,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6">
                             <h3>Second Half</h3>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-schedule">
                                 <thead>
                                     <tr>
                                     <th>Time Slot</th>
@@ -148,7 +148,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                             <h3>First Half</h3>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-schedule">
                                 <thead>
                                     <tr>
                                     <th>Time Slot</th>
@@ -178,7 +178,7 @@
                             </div>
                             <div class="col-md-6 col-sm-6">
                             <h3>Second Half</h3>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-schedule">
                                 <thead>
                                     <tr>
                                     <th>Time Slot</th>

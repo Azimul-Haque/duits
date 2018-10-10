@@ -14,7 +14,7 @@
             <div class="col-sm-12">
                 @if($registration)
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>Team</th>
@@ -54,19 +54,24 @@
                             05. Enter reference: 1<br />
                             06. Enter Counter Number: 1<br />
                             07. Now enter your bKash Mobile Menu PIN to confirm<br />
-                            08. Put Registration Id and TrxId in the box and 
+                            08. Put Registration Id and TrxId in the box and click 'VERIFY'
                             <br /><br />
                             Done! You will receive a confirmation message from bKash and a Registration Receipt here.</p>
                         </div>
                         <div class="col-md-4">
-                            <form method="post" action="{{Route('it.Fest5.chekcbkash')}}" class="bkashform">
-                                {{csrf_field()}}
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Registration Id" required name="registration_id">
-                                    <input type="text" class="form-control" placeholder="Transaction Id" required name="trxid">
-                                    <button type="submit" class="btn btn-w-m btn-primary">Check Payment</button>
-                                </div>
-                            </form>
+                            <div class="bkashform">
+                                <center>
+                                    <h4><img src="{{ asset('images/bKash.png') }}" style="height: 35px;"> Payment Verification</h4>
+                                </center>
+                                <form method="post" action="{{Route('it.Fest5.chekcbkash')}}" class="">
+                                    {{csrf_field()}}
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Registration Id" required name="registration_id">
+                                        <input type="text" class="form-control" placeholder="Transaction Id" required name="trxid">
+                                        <button type="submit" class="btn btn-w-m btn-primary">Verify</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         
                     </div>
