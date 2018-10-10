@@ -84,6 +84,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function () {
     Route::get('/it-Fest-5', 'AdminController@ShowITFest5')->name('admin.itFest5');
     Route::post('/add/itFest5/cover','AdminController@storeITFestCoverForm')->name('admin.store.itFest.cover');
     Route::post('/add/itFest5/guest','AdminController@storeITFestGuestForm')->name('admin.store.itFest.guest');
+    Route::post('/update/itFest5/guest/','AdminController@updateITFestGuestForm')->name('admin.update.itFest.guest');
     Route::get('/delete/itFest5/cover/{id}','AdminController@deleteItFestCover');
     Route::get('/delete/itFest5/guest/{id}','AdminController@deleteItFestGuest');
 });

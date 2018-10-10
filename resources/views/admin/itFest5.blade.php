@@ -125,6 +125,7 @@
                                         <img src="/uploads/itFest5/guest/{{$item->photo}}" style="height: 30px; width: 30px">
                                     </td>
                                     <td>
+                                        <button class="btn btn-info" data-toggle="modal" data-target="#editGuestModal{{$item->id}}"><i class="fa fa-edit"></i></button>
                                         <a class="btn btn-danger" href="/admin/delete/itFest5/guest/{{$item->id}}"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -172,7 +173,6 @@
     </div>
     <div id="addGuestModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -209,6 +209,48 @@
 
         </div>
     </div>
+    @foreach($guests as $item)
+    {{-- edit guest modal --}}
+    <div id="editGuestModal{{$item->id}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Guest</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="form-horizontal">
+                    <form id="guest_form" method="post" enctype="multipart/form-data" action="{{ route('admin.update.itFest.guest') }}">
+                        {{csrf_field()}}
+                        <input type="hidden" required name="id" value="{{$item->id}}">
+                        <div class="form-group"><label class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-10"><input id="name" type="text" class="form-control" placeholder="Name" required name="name" value="{{$item->name}}"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Designation</label>
+                            <div class="col-sm-10"><input id="designation" type="text" class="form-control" placeholder="Designation" required name="designation" value="{{$item->designation}}"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Institution</label>
+                            <div class="col-sm-10"><input id="institution" type="text" class="form-control" placeholder="Institution/ Work Place/ Address" required name="institution" value="{{$item->institution}}"></div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Photo (300x300)</label>
+                            <div class="col-sm-10"><input type="file" class="form-control" placeholder="" name="photo"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="submit" class="btn btn-blue" value="Save">
+                            </div>
+                        </div>
+                    </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- edit guest modal --}}
+    @endforeach
 
 @endsection
 @section('script')

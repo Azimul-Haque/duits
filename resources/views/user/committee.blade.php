@@ -31,7 +31,6 @@
                                         @else
                                             <img src="/images/committees/default.jpg" class="img-circle">
                                         @endif
-                                        
                                     </a>
                                 </div>
                                 <figcaption>

@@ -437,7 +437,6 @@ class AdminController extends Controller
             $image      = $request->file('photo');
             $filename   = str_replace(' ','',$guest->name).time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/uploads/itFest5/guest/'. $filename);
-
             Image::make($image)->resize(200, 200)->save($location);
             $guest->photo = $filename;
         }
@@ -446,8 +445,52 @@ class AdminController extends Controller
         return redirect(route('admin.itFest5'));
     }
 
+    public function updateITFestGuestForm(Request $request){
+        $this->validate($request,array(
+            'id' => 'required',
+            'name' => 'required|max:255',
+            'designation' => 'required|max:255',
+            'institution' => 'required|max:255',
+            'photo' => 'sometimes|image|max:300'
+        ));
+
+        $guest = ITFestGuest::find($request->id);
+        $guest->name = trim($request->name);
+        $guest->designation = trim($request->designation);
+        $guest->institution = trim($request->institution);
+
+        // image upload
+        if(!$guest->photo == NULL){
+            if($request->hasFile('photo')) {
+                $image      = $request->file('photo');
+                $filename   = $guest->photo;
+                $location   = public_path('/uploads/itFest5/guest/'. $filename);
+                Image::make($image)->resize(200, 200)->save($location);
+                $guest->photo = $filename;
+            }
+        } else {
+            if($request->hasFile('photo')) {
+                $image      = $request->file('photo');
+                $filename   = str_replace(' ','',$guest->name).time() .'.' . $image->getClientOriginalExtension();
+                $location   = public_path('/uploads/itFest5/guest/'. $filename);
+                Image::make($image)->resize(200, 200)->save($location);
+                $guest->photo = $filename;
+            }
+        }
+
+        $guest->save();
+        Session::flash('success','Successfully Saved');
+        return redirect(route('admin.itFest5'));
+    }
+
     public function deleteItFestCover(Request $request){
         $cover = ITFestCover::find($request->id);
+        if($cover->image != NULL) {
+            if (file_exists(public_path('/uploads/itFest5/cover/'. $cover->image))) {
+                chown(public_path('/uploads/itFest5/cover/'. $cover->image),666);
+                unlink(public_path('/uploads/itFest5/cover/'. $cover->image));
+            }  
+        }
         $cover->delete();
         Session::flash('success','Successfully Deleted');
         return redirect(route('admin.itFest5'));
@@ -455,6 +498,12 @@ class AdminController extends Controller
 
     public function deleteItFestGuest(Request $request){
         $guest = ITFestGuest::find($request->id);
+        if($guest->photo != NULL) {
+            if (file_exists(public_path('/uploads/itFest5/guest/'. $guest->photo))) {
+                chown(public_path('/uploads/itFest5/guest/'. $guest->photo),666);
+                unlink(public_path('/uploads/itFest5/guest/'. $guest->photo));
+            }  
+        }
         $guest->delete();
         Session::flash('success','Successfully Deleted');
         return redirect(route('admin.itFest5'));

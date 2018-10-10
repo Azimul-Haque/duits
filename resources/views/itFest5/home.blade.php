@@ -53,7 +53,15 @@
                 <figure class="member">
                     <div class="icon-overlay icn-link">
                         <a href="javascript:void(0)">
-                        <img src="/uploads/itFest5/guest/{{$item->photo}}" class="img-circle">
+                        @if($item->photo != NULL)
+                            @if (file_exists(public_path('/uploads/itFest5/guest/'. $item->photo)))
+                            <img src="/uploads/itFest5/guest/{{$item->photo}}" class="img-circle">
+                            @else
+                                <img src="/uploads/itFest5/guest/default.jpg" class="img-circle">
+                            @endif
+                        @else
+                            <img src="/uploads/itFest5/guest/default.jpg" class="img-circle">
+                        @endif
                         </a>
                     </div>
                     <figcaption>
