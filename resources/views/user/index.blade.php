@@ -201,18 +201,19 @@ DUITS
                     <div class="row">
                         <div class="col-sm-6 outer-top-md inner-right-sm">
                             <h2>Leave a Message</h2>
-                            <form id="" class="forms" action="{{'user.submit.message'}}" method="post">
+                            <form id="" class="forms" action="{{ route('user.submit.message') }}" method="post">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-sm-12"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12"><input type="text" name="phone" class="form-control" placeholder="Phone"></div>
+                                    <div class="col-sm-12"><input type="text" name="phone" class="form-control" placeholder="Phone" required></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12"><input type="email" name="email" class="form-control" placeholder="Email"></div>
+                                    <div class="col-sm-12"><input type="email" name="email" class="form-control" placeholder="Email" required></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12"><textarea name="message" class="form-control" placeholder="How may we assist you?"></textarea></div>
+                                    <div class="col-sm-12"><textarea name="message" class="form-control" placeholder="How may we assist you?" required></textarea></div>
                                 </div>
                                 <button type="submit" class="btn btn-default btn-submit">Submit message</button>
                             </form>

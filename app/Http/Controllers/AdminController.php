@@ -13,6 +13,7 @@ use App\Committee_type as Committee_type;
 use App\ITFest5Cover as ITFestCover;
 use App\ITFest5Guest as ITFestGuest;
 use App\ITFest5Registration as ITFestRegistration;
+use App\Message;
 
 use Carbon\Carbon;
 use Session;
@@ -56,11 +57,16 @@ class AdminController extends Controller
     }
 
     public function ShowDashboard(){
-        $news = News::orderBy('id','DESC')->get();
-        $events = Events::orderBy('id','DESC')->get();
-        $notice = Notices::orderBy('id','DESC')->get();
+        $messages = Message::orderBy('id','DESC')->get();
         $committees = Committee_type::with('committee')->orderBy('id','DESC')->get();
-        return view('admin.dashboard',['news' => $news, 'events'=>$events, 'notice'=>$notice, 'committees'=>$committees]);
+        return view('admin.dashboard',['messages' => $messages]);
+    }
+
+    public function deleteMessage(Request $request){
+        $message = Message::find($request->id);
+        $message->delete();
+        Session::flash('success','Successfully Deleted');
+        return redirect()->back();
     }
 
     public function ShowITFest5(){
@@ -71,8 +77,9 @@ class AdminController extends Controller
     }
 
     public function showAddCommitteeMemberForm(){
+        $committees = Committee_type::with('committee')->orderBy('id','DESC')->get();
         $committee = Committee_type::all();
-        return view('admin.addCommitteeForm',['committees' => $committee]);
+        return view('admin.addCommitteeForm',['committees' => $committee, 'committees' => $committees]);
     }
 
     public function storeCommitteeMemberForm(Request $request){
@@ -99,11 +106,12 @@ class AdminController extends Controller
         }
         $committee->save();
         Session::flash('success','Successfully Saved');
-        return redirect(Route('admin.dashboard'));
+        return redirect()->back();
     }
 
     public function showAddnewsForm(){
-        return view('admin.addNewsForm');
+        $news = News::orderBy('id','DESC')->get();
+        return view('admin.addNewsForm', ['news' => $news]);
     }
 
     public function storeAddnewsForm(Request $request){
@@ -133,9 +141,8 @@ class AdminController extends Controller
         }
 
         $news->save();
-
         Session::flash('success','Successfully Saved');
-        return redirect(Route('admin.dashboard'));
+        return redirect(Route('admin.news.add'));
     }
 
     public function showEditNewsForm(Request $request){
@@ -175,15 +182,20 @@ class AdminController extends Controller
             }
         }
         
-
         $news->save();
 
         Session::flash('success','Successfully Edited');
-        return redirect(Route('admin.dashboard'));
+        return redirect(Route('admin.news.add'));
     }
 
     public function deleteNews(Request $request){
         $news = News::find($request->id);
+        if($news->imagepath != NULL) {
+            if (file_exists(public_path('images/news/'. $news->imagepath))) {
+                chown(public_path('images/news/'. $news->imagepath),666);
+                unlink(public_path('images/news/'. $news->imagepath));
+            }  
+        }
         $news->delete();
         Session::flash('success','Successfully Deleted');
         return redirect()->back();
@@ -205,7 +217,7 @@ class AdminController extends Controller
         $notice->body = trim($request->body);
         $notice->save();
         Session::flash('success','Successfully Edited');
-        return redirect(Route('admin.dashboard'));
+        return redirect(Route('admin.notice.add'));
     }
 
     public function deleteNotice(Request $request){
@@ -227,11 +239,13 @@ class AdminController extends Controller
             'name' => 'required|max:255',
             'designation' => 'required',
             'status' => 'required',
+            'type' => 'required',
             'pic' => 'mimes:jpeg,bmp,png,jpg|max:10000'
         ));
         $committee =Committee::find($request->id);
         $committee->name =htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
         $committee->status = $request->status;
+        $committee->committee_type_id = $request->type;
         $committee->designation = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->designation)));
         $committee->fb = trim($request->fb);
         $committee->g_plus = trim($request->g_plus);
@@ -240,16 +254,22 @@ class AdminController extends Controller
         if($request->hasFile('pic')){
             $file = $request->file('pic');
             $fileName = time().$request->file('pic')->getClientOriginalName();
-            $file->move(public_path('/uploads/images'), $fileName);
+            $file->move(public_path('/images/committees/'), $fileName);
             $committee->photo = $fileName;
         }
         $committee->save();
         Session::flash('success','Successfully Edited');
-        return redirect(Route('admin.dashboard'));
+        return redirect()->back();
     }
 
     public function deleteCommitteeMember(Request $request){
-        $adm = Administration ::find($request->id);
+        $adm = Committee::find($request->id);
+        if($adm->photo != NULL) {
+            if (file_exists(public_path('images/committees/'. $adm->photo))) {
+                chown(public_path('images/committees/'. $adm->photo),666);
+                unlink(public_path('images/committees/'. $adm->photo));
+            }  
+        }
         $adm->delete();
         Session::flash('success','Successfully Deleted');
         return redirect()->back();
@@ -295,11 +315,17 @@ class AdminController extends Controller
         }
         $event->save();
         Session::flash('success','Successfully Edited');
-        return redirect(Route('admin.dashboard'));
+        return redirect(Route('admin.events.add'));
     }
 
     public function deleteEvents(Request $request){
         $event = Events::find($request->id);
+        if($event->imagepath != NULL) {
+            if (file_exists(public_path('images/events/'. $event->imagepath))) {
+                chown(public_path('images/events/'. $event->imagepath),666);
+                unlink(public_path('images/events/'. $event->imagepath));
+            }  
+        }
         $event->delete();
         Session::flash('success','Successfully Deleted');
         return redirect()->back();
@@ -307,7 +333,8 @@ class AdminController extends Controller
     }
 
     public function showAddeventsForm(){
-        return view('admin.addEventsForm');
+        $events = Events::orderBy('id','DESC')->get();
+        return view('admin.addEventsForm', ['events' => $events]);
     }
 
     public function storeEvents(Request $request){
@@ -334,18 +361,16 @@ class AdminController extends Controller
             /*Image::make($image)->resize(300, 300, function ($constraint) {
             $constraint->aspectRatio();
             })->save($location);*/
-
             $event->imagepath = $filename;
         }
-
         $event->save();
-
         Session::flash('success','Successfully Saved');
-        return redirect(Route('admin.dashboard'));
+        return redirect(Route('admin.events.add'));
     }
 
     public function showAddNoticeForm(){
-        return view('admin.addNoticeForm');
+        $notice = Notices::orderBy('id','DESC')->get();
+        return view('admin.addNoticeForm',['notice' =>$notice]);
     }
 
     public function storeAddNoticeForm(Request $request){
@@ -359,7 +384,7 @@ class AdminController extends Controller
         $notice->body = trim($request->body);
         $notice->save();
         Session::flash('success','Successfully Saved');
-        return redirect(route('admin.dashboard'));
+        return redirect(route('admin.notice.add'));
     }
 
     public function storeITFestCoverForm(Request $request){

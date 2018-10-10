@@ -8569,3 +8569,7 @@ body.md-skin {
   font-family: arial;
   padding: 2em;
 }
+
+.float-right {
+  float: right;
+}

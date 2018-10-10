@@ -46,10 +46,10 @@
                 </li>
                 <li>
                     <a href="{{Route('admin.dashboard')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Home</span></a>
-                    <a href="{{Route('admin.add.committee.member')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Add Committee</span></a>
-                    <a href="{{Route('admin.notice.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Add Notice</span></a>
-                    <a href="{{Route('admin.news.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Add News</span></a>
-                    <a href="{{Route('admin.events.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Add Events</span></a>
+                    <a href="{{Route('admin.add.committee.member')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Committee</span></a>
+                    <a href="{{Route('admin.notice.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Notice</span></a>
+                    <a href="{{Route('admin.news.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">News</span></a>
+                    <a href="{{Route('admin.events.add')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Events</span></a>
                     <a href="{{Route('admin.itFest5')}}"><i class="fa fa-diamond"></i> <span class="nav-label">5th IT Fest</span></a>
                 </li>
             </ul>

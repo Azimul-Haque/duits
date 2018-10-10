@@ -17,7 +17,8 @@
                     <div class="row">
                         <div class="col-sm-6 outer-top-md inner-right-sm">
                             <h2>Leave a Message</h2>
-                            <form id="" class="forms" action="{{'user.submit.message'}}" method="post">
+                            <form id="" class="forms" action="{{ route('user.submit.message') }}" method="post">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-sm-12"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
                                 </div>

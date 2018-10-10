@@ -44,6 +44,7 @@ Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('adm
 Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('login');
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function () {
     Route::get('/dashboard', 'AdminController@ShowDashboard')->name('admin.dashboard');
+    Route::get('/delete/message/{id}', 'AdminController@deleteMessage')->name('admin.message.delete');
 
     Route::get('/add/committee/member', 'AdminController@showAddCommitteeMemberForm')->name('admin.add.committee.member');
     Route::post('/add/committee/member', 'AdminController@storeCommitteeMemberForm')->name('admin.store.committee.member');

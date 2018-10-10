@@ -12,7 +12,7 @@ use App\Notice as Notice;
 use Session;
 use App\User as User;
 use App\Committee_type as Committee_type;
-use App\Meaasge as Message;
+use App\Message as Message;
 use App\ITFest5Cover as ITFestCover;
 use App\ITFest5Guest as ITFestGuest;
 use App\ITFest5Registration as ITFestRegistration;
@@ -58,7 +58,7 @@ class IndexController extends Controller
 
     public function showCommittee(Request $request){
         $type = Committee_type::where('name',$request->name)->first();
-        $committees = Committee::where([['status','=','Current'],['committee_type_id','=',$type->id]])->paginate(6);
+        $committees = Committee::where('committee_type_id','=',$type->id)->paginate(6);
         return view('user.committee',['committees'=>$committees,'type' => $type]);
     }
 
@@ -107,13 +107,21 @@ class IndexController extends Controller
     }
 
     public function storeMessage(Request $request){
+        $this->validate($request,array(
+            'name'             => 'required|max:255',
+            'phone'              => 'required|max:255',
+            'email'           => 'required|max:255',
+            'message'           => 'required|max:255'
+        ));
+
         $message = new Message();
         $message->name = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
         $message->email = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->email)));
         $message->phone = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->phone)));
         $message->message = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->message)));
         $message->save();
-        Session::flash('success_msg_send','Thank You. We have got your valuable opinion');
+        
+        Session::flash('success','Thank You. We have got your valuable opinion');
         return redirect()->back();
     }
 

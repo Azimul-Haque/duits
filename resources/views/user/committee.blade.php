@@ -29,6 +29,7 @@
                                     <h2>
                                         {{$member->name}}
                                         <span>{{$member->designation}}</span>
+                                        <span style="border-bottom: 1px solid #ddd;">{{$member->status}} Member</span>
                                     </h2>
                                     <ul class="social">
                                         <li>
