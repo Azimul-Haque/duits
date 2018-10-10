@@ -184,14 +184,18 @@
                     <form id="guest_form" method="post" enctype="multipart/form-data" action="{{Route('admin.store.itFest.guest')}}">
                         {{csrf_field()}}
                         <div class="form-group"><label class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10"><input id="name" type="text" class="form-control" placeholder="" required name="name"></div>
+                            <div class="col-sm-10"><input id="name" type="text" class="form-control" placeholder="Name" required name="name"></div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Designation</label>
-                            <div class="col-sm-10"><input id="designation" type="text" class="form-control" placeholder="" required name="designation"></div>
+                            <div class="col-sm-10"><input id="designation" type="text" class="form-control" placeholder="Designation" required name="designation"></div>
                         </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">Photo</label>
-                            <div class="col-sm-10"><input type="file" class="form-control" placeholder="" name="photo" required></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Institution</label>
+                            <div class="col-sm-10"><input id="institution" type="text" class="form-control" placeholder="Institution/ Work Place/ Address" required name="institution"></div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Photo (300x300)</label>
+                            <div class="col-sm-10"><input type="file" class="form-control" placeholder="" name="photo"></div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-10">

@@ -88,7 +88,7 @@ class AdminController extends Controller
             'designation' => 'required',
             'status' => 'required',
             'type' => 'required',
-            'pic' => 'mimes:jpeg,bmp,png,jpg|max:10000'
+            'pic' => 'mimes:jpeg,bmp,png,jpg|max:5000'
         ));
         $committee = new Committee();
         $committee->name =htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
@@ -120,7 +120,7 @@ class AdminController extends Controller
 
     public function storeAddnewsForm(Request $request){
         $this->validate($request,array(
-            'headline' => 'required|max:500',
+            'headline' => 'required|max:255',
             'body' => 'required',
             'image' => 'sometimes|image|max:300'
         ));
@@ -157,7 +157,7 @@ class AdminController extends Controller
 
     public function EditNewsForm(Request $request){
         $this->validate($request,array(
-            'headline' => 'required|max:500',
+            'headline' => 'required|max:255',
             'body' => 'required',
             'image' => 'sometimes|image|mimes:jpeg,bmp,png,jpg|max:300'
         ));
@@ -244,7 +244,7 @@ class AdminController extends Controller
             'designation' => 'required',
             'status' => 'required',
             'type' => 'required',
-            'pic' => 'mimes:jpeg,bmp,png,jpg|max:10000'
+            'pic' => 'mimes:jpeg,bmp,png,jpg|max:5000'
         ));
         $committee =Committee::find($request->id);
         $committee->name =htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->name)));
@@ -291,7 +291,7 @@ class AdminController extends Controller
 
     public function EditEventsForm(Request $request){
         $this->validate($request,array(
-            'headline' => 'required|max:500',
+            'headline' => 'required|max:255',
             'body' => 'required',
             'date' => 'required',
             'image' => 'sometimes|image|max:300'
@@ -347,7 +347,7 @@ class AdminController extends Controller
 
     public function storeEvents(Request $request){
         $this->validate($request,array(
-            'headline' => 'required|max:500',
+            'headline' => 'required|max:255',
             'body' => 'required',
             'date' => 'required',
             'image' => 'sometimes|image|max:300'
@@ -397,29 +397,22 @@ class AdminController extends Controller
 
     public function storeITFestCoverForm(Request $request){
         $this->validate($request,array(
-            'title' => 'required|max:500'
+            'title' => 'required|max:255'
         ));
 
         $cover = new ITFestCover();
         $cover->title = trim($request->title);
-        if($request->hasFile('photo')){
-            $file = $request->file('photo');
-            $fileName = str_replace(' ','',$request->title).time().'.' . $file->getClientOriginalExtension();
-            $file->move(public_path('/uploads/itFest5/cover/'), $fileName);
-            $cover->image = $fileName;
-        }
+        
         // image upload
         if($request->hasFile('photo')) {
             $image      = $request->file('photo');
-            $nowdatetime = Carbon::now();
-            $filename   = str_replace(' ','',$event->headline).$nowdatetime->format('YmdHis') .'.' . $image->getClientOriginalExtension();
-            $location   = public_path('images/events/'. $filename);
+            $filename   = str_replace(' ','',$request->title).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/uploads/itFest5/cover/'. $filename);
 
-            Image::make($image)->resize(500, 333)->save($location);
-            /*Image::make($image)->resize(300, 300, function ($constraint) {
+            Image::make($image)->resize(750, 500, function ($constraint) {
             $constraint->aspectRatio();
-            })->save($location);*/
-            $event->imagepath = $filename;
+            })->save($location);
+            $cover->image = $filename;
         }
         $cover->save();
         Session::flash('success','Successfully Saved');
@@ -428,18 +421,25 @@ class AdminController extends Controller
 
     public function storeITFestGuestForm(Request $request){
         $this->validate($request,array(
-            'name' => 'required|max:500',
-            'designation' => 'required|max:500',
+            'name' => 'required|max:255',
+            'designation' => 'required|max:255',
+            'institution' => 'required|max:255',
+            'photo' => 'sometimes|image|max:300'
         ));
 
         $guest = new ITFestGuest();
         $guest->name = trim($request->name);
         $guest->designation = trim($request->designation);
-        if($request->hasFile('photo')){
-            $file = $request->file('photo');
-            $fileName = str_replace(' ','',$request->name).time().'.' . $file->getClientOriginalExtension();
-            $file->move(public_path('/uploads/itFest5/guest/'), $fileName);
-            $guest->photo = $fileName;
+        $guest->institution = trim($request->institution);
+
+        // image upload
+        if($request->hasFile('photo')) {
+            $image      = $request->file('photo');
+            $filename   = str_replace(' ','',$guest->name).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/uploads/itFest5/guest/'. $filename);
+
+            Image::make($image)->resize(200, 200)->save($location);
+            $guest->photo = $filename;
         }
         $guest->save();
         Session::flash('success','Successfully Saved');

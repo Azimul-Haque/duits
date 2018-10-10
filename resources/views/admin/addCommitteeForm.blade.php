@@ -182,7 +182,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Sselect Committee Type</label>
+                            <div class="form-group"><label class="col-sm-2 control-label">Select Committee Type</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" name="type" required>
                                         <option value="">Select One</option>
@@ -192,7 +192,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group"><label class="col-sm-2 control-label">Photo</label>
+                            <div class="form-group"><label class="col-sm-2 control-label">Photo  (300x300)</label>
                                 <div class="col-sm-10"><input type="file" name="pic" accept="image/*"></div>
                             </div>
                             <div class="form-group"><label class="col-sm-2 control-label">Facebook</label>
@@ -248,7 +248,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">Sselect Committee Type</label>
+                        <div class="form-group"><label class="col-sm-2 control-label">Select Committee Type</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="type" required>
                                     <option value="">Select One</option>
@@ -258,7 +258,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">Photo</label>
+                        <div class="form-group"><label class="col-sm-2 control-label">Photo  (300x300)</label>
                             <div class="col-sm-10"><input type="file" name="pic" accept="image/*"></div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Facebook</label>

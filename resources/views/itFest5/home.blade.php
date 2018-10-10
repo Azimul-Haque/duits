@@ -49,7 +49,7 @@
         </div>
         <div class="row inner-top-sm text-center">
             @foreach($guests as $item)
-            <div class="col-sm-4 inner-bottom-sm inner-left inner-right">
+            <div class="col-sm-4 inner-bottom-sm inner-left inner-right" style="min-height: 490px;">
                 <figure class="member">
                     <div class="icon-overlay icn-link">
                         <a href="javascript:void(0)">
@@ -59,6 +59,7 @@
                     <figcaption>
                         <h2> {{$item->name}}
                         <span>{{$item->designation}}</span>
+                        <span>{{$item->institution}}</span>
                         </h2>
                     </figcaption>
                 </figure>
