@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use Session;
 use Auth;
 use Image;
+use File;
 
 class AdminController extends Controller
 {
@@ -194,11 +195,9 @@ class AdminController extends Controller
 
     public function deleteNews(Request $request){
         $news = News::find($request->id);
-        if($news->imagepath != NULL) {
-            if (file_exists(public_path('images/news/'. $news->imagepath))) {
-                chown(public_path('images/news/'. $news->imagepath),666);
-                unlink(public_path('images/news/'. $news->imagepath));
-            }  
+        $image_path = public_path('images/news/'. $news->imagepath);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
         }
         $news->delete();
         Session::flash('success','Successfully Deleted');
@@ -272,11 +271,9 @@ class AdminController extends Controller
 
     public function deleteCommitteeMember(Request $request){
         $adm = Committee::find($request->id);
-        if($adm->photo != NULL) {
-            if (file_exists(public_path('images/committees/'. $adm->photo))) {
-                chown(public_path('images/committees/'. $adm->photo),666);
-                unlink(public_path('images/committees/'. $adm->photo));
-            }  
+        $image_path = public_path('images/committees/'. $adm->photo);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
         }
         $adm->delete();
         Session::flash('success','Successfully Deleted');
@@ -328,11 +325,9 @@ class AdminController extends Controller
 
     public function deleteEvents(Request $request){
         $event = Events::find($request->id);
-        if($event->imagepath != NULL) {
-            if (file_exists(public_path('images/events/'. $event->imagepath))) {
-                chown(public_path('images/events/'. $event->imagepath),666);
-                unlink(public_path('images/events/'. $event->imagepath));
-            }  
+        $image_path = public_path('images/events/'. $event->imagepath);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
         }
         $event->delete();
         Session::flash('success','Successfully Deleted');
@@ -485,11 +480,9 @@ class AdminController extends Controller
 
     public function deleteItFestCover(Request $request){
         $cover = ITFestCover::find($request->id);
-        if($cover->image != NULL) {
-            if (file_exists(public_path('/uploads/itFest5/cover/'. $cover->image))) {
-                chown(public_path('/uploads/itFest5/cover/'. $cover->image),666);
-                unlink(public_path('/uploads/itFest5/cover/'. $cover->image));
-            }  
+        $image_path = public_path('/uploads/itFest5/cover/'. $cover->image);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
         }
         $cover->delete();
         Session::flash('success','Successfully Deleted');
@@ -498,11 +491,9 @@ class AdminController extends Controller
 
     public function deleteItFestGuest(Request $request){
         $guest = ITFestGuest::find($request->id);
-        if($guest->photo != NULL) {
-            if (file_exists(public_path('/uploads/itFest5/guest/'. $guest->photo))) {
-                chown(public_path('/uploads/itFest5/guest/'. $guest->photo),666);
-                unlink(public_path('/uploads/itFest5/guest/'. $guest->photo));
-            }  
+        $image_path = public_path('/uploads/itFest5/guest/'. $guest->photo);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
         }
         $guest->delete();
         Session::flash('success','Successfully Deleted');
