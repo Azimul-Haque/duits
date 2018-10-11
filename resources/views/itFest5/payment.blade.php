@@ -46,12 +46,12 @@
                         <h3>Pay Tk. {{ $registration->amount }}/- following this process in the Next page, Click the button below.</h3>
                         {!! 
                         aamarpay_post_button([
-                            'cus_name'  => $registration->team, // Customer name
-                            'cus_email' => $registration->email, // Customer email
-                            'cus_phone' => $registration->mobile, // Customer Phone
-                            'desc' => 'Registration Fee', // Customer Phone
-                            'opt_a' => $registration->registration_id // Customer Phone
-                            'opt_b' => $registration->amount // Customer Phone
+                            'cus_name'  => $registration->team,
+                            'cus_email' => $registration->email,
+                            'cus_phone' => $registration->mobile,
+                            'desc' => 'Registration Fee',
+                            'opt_a' => $registration->registration_id,
+                            'opt_b' => $registration->amount
                         ], $registration->amount, '<i class="fa fa-money"></i> Pay Through AamarPay', 'btn btn-sm btn-success') 
                         !!}
                     </center>
