@@ -210,24 +210,10 @@ class IndexController extends Controller
                 ->withRegistration($registration);
     }
 
-
-    /**
-     * Bkash api base url.
-     *
-     * @var string
-     */
-
-    /**
-     * Check bkash payment transaction id.
-     *
-     * @param string $transactionId
-     * @throws Exception
-     */
-    public function checkBkashTrxId(Request $request)
-    {
-        $this->validate($request,array(
-            'registration_id' => 'required',
-            'trxid'           => 'required'
-        ));
+    public function pritntRegistrationReceipt($registration_id){
+        $team = ITFestRegistration::where('registration_id', $registration_id)->first();
+        return view('itFest5.print')
+                ->withTeam($team);
     }
+
 }

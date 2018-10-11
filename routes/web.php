@@ -38,6 +38,9 @@ Route::post('payment/success', 'PaymentController@paymentSuccessOrFailed')->name
 Route::post('payment/failed', 'PaymentController@paymentSuccessOrFailed')->name('payment.failed');
 Route::post('payment/cancel', 'PaymentController@paymentSuccessOrFailed')->name('payment.cancel');
 
+Route::get('/it-fest-5/print/registration/receipt/{registration_id}','IndexController@pritntRegistrationReceipt')->name('it.Fest5.printreceipt');
+
+
 
 Route::group(['middleware' => 'auth'], function (){
 });

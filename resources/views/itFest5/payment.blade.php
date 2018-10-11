@@ -56,8 +56,11 @@
                         !!}
                     </center>
                 @elseif($registration->payment_status == 1)
-                    <h3>Download the Registration Receipt</h3>
-                    <span>Transaction ID: {{ $registration->trxid }}</span>
+                    <center>
+                        <h3>Download the Registration Receipt</h3>
+                        <span>Transaction ID: {{ $registration->trxid }}</span><br/>
+                        <a href="{{ route('it.Fest5.printreceipt', $registration->registration_id) }}" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> Print Registration Receipt</a>
+                    </center>
                 @endif
                 @else
                 <h3 class="text-center">No Team Found! Search Again.</h3>
