@@ -86,7 +86,7 @@
           </tr>
           <tr>
             <th width="50%">Amount Paid:</th>
-            <td>{{ $team->amount }}</td>
+            <td>{{ $team->amount }}/-</td>
           </tr>
           <tr>
             <th width="50%">Transaction Id:</th>

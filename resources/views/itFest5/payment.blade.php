@@ -27,7 +27,7 @@
                         <tbody>
                             <tr>
                                 <td>{{ $registration->team }}</td>
-                                <td>{{ $registration->registration_id }}</td>
+                                <td><big><b>{{ $registration->registration_id }}</b></big></td>
                                 <td>{{ $registration->event_name }}</td>
                                 <td>{{ $registration->amount }}/-</td>
                                 <td>
@@ -39,6 +39,11 @@
                                 </td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">* Remeber the Registration Id</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 @if($registration->payment_status == 0)
