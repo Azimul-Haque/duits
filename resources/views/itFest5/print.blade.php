@@ -103,7 +103,7 @@
       <ul>
         <li>Champion &amp; Runners-up Team will be awarded with Prize money.</li>
         <li>Winning Team will be awarded with trophy or crest, where each individual will get medals.</li>
-        <li>For gaming, special prize money & gadget will be awarded.</li>
+        <li>For gaming, special prize money &amp; gadget will be awarded.</li>
       </ul>
       <h4><b>For Emergency Contact:</b></h4>
       <div>
