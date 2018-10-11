@@ -6,10 +6,10 @@ return [
     'sandbox' => false,
     'redirect_url' => [
         'success' => [
-            'route' => 'payment.success' // payment.success
+            'route' => 'payment.success'
         ],
         'cancel' => [
-            'route' => 'payment.cancel' // payment/cancel or you can use route also
+            'route' => 'payment.cancel'
         ]
     ]
 ];

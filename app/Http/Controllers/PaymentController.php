@@ -32,7 +32,6 @@ class PaymentController extends Controller
           Session::flash('info', $registration_id.': You need to make the payment!');
         }
         
-        return redirect()->back();
-        //return 'Its working!';
+        return redirect(Route('it.Fest5.payorcheck', $registration_id));
     }
 }
