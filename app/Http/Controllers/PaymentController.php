@@ -17,8 +17,9 @@ class PaymentController extends Controller
             return redirect()->back();
         }
         
-        $amount = $request->get('amount');
-        $valid  = Aamarpay::valid($request, $amount);
+        $amount = $request->get('opt_b');
+        $aamarpay = new Aamarpay();
+        $valid  = $aamarpay->valid($request, $amount);
         
         if($valid) {
           $registration_id = $request->get('opt_a');
