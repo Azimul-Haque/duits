@@ -13,8 +13,9 @@ class PaymentController extends Controller
     public function paymentSuccessOrFailed(Request $request)
     {
         $registration_id = $request->get('opt_a');
+        $amount = $request->get('opt_b');
         if($request->get('pay_status') == 'Failed') {
-            Session::flash('info',$registration_id.': You need to make the payment!');
+            Session::flash('info',$registration_id.': You need to make the payment! Pay Tk:'.$amount);
             return redirect()->back();
         }
         
