@@ -22,7 +22,7 @@ class PaymentController extends Controller
         $amount_paid = $request->get('amount');
         
         if($amount_paid == $amount_request) {
-          $registration = ITFestRegistration::where('registration_id', $registration_id);
+          $registration = ITFestRegistration::where('registration_id', $registration_id)->first();
           $registration->trxid = $request->get('mer_txnid');
           $registration->payment_status = 1;
           $registration->save();
