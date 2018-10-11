@@ -142,7 +142,7 @@
         <div class="row">
             <div class="col-md-8 col-sm-9 center-block text-center">
                 <header>
-                <h2>Check Yout Registration Status</h2>
+                <h2>Check Your Registration Status</h2>
                 </header>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Registration ID" id="registration_id_to_search">

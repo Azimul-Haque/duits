@@ -35,7 +35,7 @@
             <div class="navbar-header">
                <div class="container">
                   <ul class="info pull-left">
-                     <li><a href="#" style="color:white;"><i class="icon-mail-1 contact"></i> admin@duits-bd.org</a></li>
+                     <li><a href="#" style="color:white;"><i class="icon-mail-1 contact"></i>info@duits-bd.org</a></li>
                      <li style="color:white;"><i class="icon-mobile contact"></i> +8801923734867</li>
                   </ul>
                   <ul class="social pull-right">
