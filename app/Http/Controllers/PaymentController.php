@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Shipu\Aamarpay\Facades\Aamarpay;
+use Session;
 
 class PaymentController extends Controller
 {
