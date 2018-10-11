@@ -12,6 +12,7 @@ class PaymentController extends Controller
 {
     public function paymentSuccessOrFailed(Request $request)
     {
+        $registration_id = $request->get('opt_a');
         if($request->get('pay_status') == 'Failed') {
             Session::flash('error',$registration_id.': You need to make the payment!');
             return redirect()->back();
@@ -22,8 +23,6 @@ class PaymentController extends Controller
         $valid  = $aamarpay->valid($request, $amount);
         
         if($valid) {
-          $registration_id = $request->get('opt_a');
-
           $registration = ITFestRegistration::where('registration_id', $registration_id);
           $registration->trxid = $request->get('mer_txnid');
           $registration->payment_status = 1;
