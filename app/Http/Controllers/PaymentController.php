@@ -14,7 +14,7 @@ class PaymentController extends Controller
     {
         $registration_id = $request->get('opt_a');
         if($request->get('pay_status') == 'Failed') {
-            Session::flash('error',$registration_id.': You need to make the payment!');
+            Session::flash('info',$registration_id.': You need to make the payment!');
             return redirect()->back();
         }
         
@@ -30,7 +30,7 @@ class PaymentController extends Controller
           Session::flash('success','Registration is complete!');
         } else {
            // Something went wrong.
-          Session::flash('error', $registration_id.': You need to make the payment!');
+          Session::flash('info', $registration_id.': You need to make the payment!');
         }
         
         return redirect()->back();
