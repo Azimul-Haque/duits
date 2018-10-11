@@ -210,23 +210,6 @@ class IndexController extends Controller
                 ->withRegistration($registration);
     }
 
-    public function paymentSuccessOrFailed(Request $request) {
-        if($request->get('pay_status') == 'Failed') {
-            return redirect()->back();
-        }
-        
-        $amount = 3500;
-        $valid  = Aamarpay::valid($request, $amount);
-        
-        if($valid) {
-            // Successfully Paid.
-        } else {
-           // Something went wrong. 
-        }
-        
-        return redirect()->back();
-    }
-
 
     /**
      * Bkash api base url.

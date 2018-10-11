@@ -18,13 +18,14 @@ class PaymentController extends Controller
         $valid  = Aamarpay::valid($request, $amount);
         
         if($valid) {
-          // post the trxid into the db
+          Session::flash('success','Registration is complete!');
           $registration_id = $request->get('opt_a');
         } else {
-           // Something went wrong. 
+           // Something went wrong.
+          Session::flash('error',$registration_id.': You need to make the payment!');
         }
         
-        //return redirect()->back();
-        return 'Its working!';
+        return redirect()->back();
+        //return 'Its working!';
     }
 }
