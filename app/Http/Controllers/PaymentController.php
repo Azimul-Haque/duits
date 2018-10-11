@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ITFest5Registration as ITFestRegistration;
 
-use Shipu\Aamarpay\Aamarpay;
+use Shipu\Aamarpay\Facades\Aamarpay;
 use Session;
 
 class PaymentController extends Controller
