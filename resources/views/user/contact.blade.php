@@ -45,7 +45,7 @@
                             <div class="social-network">
                                 <h3>Social</h3>
                                 <ul class="social">
-                                    <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+                                    <li><a href="https://www.facebook.com/Dhaka.University.IT.Society.DUITS" target="_blank"><i class="icon-s-facebook"></i></a></li>
                                     <li><a href="#"><i class="icon-s-gplus"></i></a></li>
                                     <li><a href="#"><i class="icon-s-twitter"></i></a></li>
                                     <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
