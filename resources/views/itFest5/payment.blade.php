@@ -49,6 +49,7 @@
                             'cus_name'  => $registration->team, // Customer name
                             'cus_email' => $registration->email, // Customer email
                             'cus_phone' => $registration->mobile, // Customer Phone
+                            'desc' => 'Registration Fee', // Customer Phone
                             'opt_a' => $registration->registration_id // Customer Phone
                         ], $registration->amount, '<i class="fa fa-money"></i> Pay Through AamarPay', 'btn btn-sm btn-success') 
                         !!}
