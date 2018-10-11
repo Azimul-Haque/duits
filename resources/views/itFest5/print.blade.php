@@ -43,7 +43,7 @@
 <body>
   <div class="row">
     <div class="col-md-12">
-      <img src="{{ asset('images/print_background.png') }}" class="img-responsive img-background">
+      <img src="{{ asset('images/print_background.png?unique_id='.date('ymdhis')) }}" class="img-responsive img-background">
       <center>
         <span>5<sup>th</sup> National</span><br/>
         <span style="font-size: 20px;"><b>DUITS Campus IT Fest 2018</b></span><br/>
