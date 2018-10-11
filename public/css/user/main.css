@@ -2774,7 +2774,7 @@ blockquote:before{
 	display:table-cell
 }
 #owl-main .caption.vertical-center{
-	vertical-align:middle;
+	vertical-align:bottom;
 	padding-bottom:3vh
 }
 #owl-main .caption.vertical-top{
@@ -4986,7 +4986,7 @@ input:focus:-ms-input-placeholder{
 		margin-top:17px
 }
 	#hero #owl-main .caption h1.light-bg,#hero #owl-main .caption h1.medium-bg,#hero #owl-main .caption h1.dark-bg,#hero #owl-main .caption h1.tint-bg{
-		font-size:50px
+		font-size:30px;
 }
 	#hero .btn{
 		margin-top:35px

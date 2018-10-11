@@ -26,6 +26,7 @@ class CreateITFest5RegistrationsTable extends Migration
             $table->string('institution');
             $table->string('class');
             $table->text('address');
+            $table->string('email');
             $table->string('mobile');
             $table->string('emergencycontact');
             $table->string('imagepath');

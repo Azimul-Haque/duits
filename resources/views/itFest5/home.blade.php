@@ -209,6 +209,10 @@
                     <input type="text" class="form-control" placeholder="" required name="address" value="{{ old('address') }}">
                 </div>
                 <div class="form-group">
+                    <label class="control-label">Email Address</label>
+                    <input type="email" class="form-control" placeholder="" required name="email" value="{{ old('email') }}">
+                </div>
+                <div class="form-group">
                     <label class="control-label">Mobile No: (11 digit number)</label>
                     <input type="text" class="form-control" placeholder="" required name="mobile" value="{{ old('mobile') }}" pattern="\d*" maxlength="11">
                 </div>

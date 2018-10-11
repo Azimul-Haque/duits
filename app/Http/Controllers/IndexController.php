@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use Image;
 
-use Exception;
+use \Shipu\Aamarpay\Aamarpay;
 
 
 class IndexController extends Controller
@@ -143,6 +143,7 @@ class IndexController extends Controller
             'institution'       => 'required|max:255',
             'class'             => 'required|max:255',
             'address'           => 'required|max:255',
+            'email'            => 'required|email',
             'mobile'            => 'required|numeric',
             'emergencycontact'  => 'required|numeric',
             'image'             => 'required|image|max:300'
@@ -162,6 +163,7 @@ class IndexController extends Controller
         $registration->institution = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->institution)));
         $registration->class = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->class)));
         $registration->address = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->address)));
+        $registration->email = $request->email;
         $registration->mobile = $request->mobile;
         $registration->emergencycontact = $request->emergencycontact;
         
@@ -204,8 +206,27 @@ class IndexController extends Controller
 
     public function payorcheckItFest5($registration_id){
         $registration = ITFestRegistration::where('registration_id', $registration_id)->first();
-        return view('itFest5.payment')->withRegistration($registration);
+        return view('itFest5.payment')
+                ->withRegistration($registration);
     }
+
+    public function paymentSuccessOrFailed(Request $request) {
+        if($request->get('pay_status') == 'Failed') {
+            return redirect()->back();
+        }
+        
+        $amount = 3500;
+        $valid  = Aamarpay::valid($request, $amount);
+        
+        if($valid) {
+            // Successfully Paid.
+        } else {
+           // Something went wrong. 
+        }
+        
+        return redirect()->back();
+    }
+
 
     /**
      * Bkash api base url.
