@@ -392,7 +392,8 @@ class AdminController extends Controller
 
     public function storeITFestCoverForm(Request $request){
         $this->validate($request,array(
-            'title' => 'required|max:255'
+            'title' => 'required|max:255',
+            'photo' => 'image|max:5000'
         ));
 
         $cover = new ITFestCover();

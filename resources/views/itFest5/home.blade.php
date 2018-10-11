@@ -105,127 +105,19 @@
                 <div class="panel-container">
                     <div class="tab-content" id="tab-1">
                         <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                            <h3>First Half</h3>
-                            <table class="table table-bordered table-schedule">
-                                <thead>
-                                    <tr>
-                                    <th>Time Slot</th>
-                                    <th>Program</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td>9.00 AM - 9.30 AM</td>
-                                    <td>Registration Process &amp; Team arrival</td>
-                                    </tr>
-                                    <tr>
-                                    <td>9.30 AM - 10.00 AM</td>
-                                    <td>Colorful Rally of the participants</td>
-                                    </tr>
-                                    <tr>
-                                    <td>10.00 AM - 12.30 PM</td>
-                                    <td>Inauguration Ceremony at Senate building</td>
-                                    </tr>
-                                    <tr>
-                                    <td>12.30 PM - 1.30 PM</td>
-                                    <td>Project briefing on TSC stage</td>
-                                    </tr>
-                                    <tr>
-                                    <td>01.30 PM - 02.30 PM</td>
-                                    <td>Lunch break</td>
-                                    </tr>
-                                    
-                                </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <h3>Second Half</h3>
-                            <table class="table table-bordered table-schedule">
-                                <thead>
-                                    <tr>
-                                    <th>Time Slot</th>
-                                    <th>Program</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td>02.30 PM - 03.30 PM</td>
-                                    <td>Round table conference with the policy makers</td>
-                                    </tr>
-                                    <tr>
-                                    <td>03.30 PM - 04.30 PM</td>
-                                    <td>Problem solving, Gaming Contest start at gaming room</td>
-                                    </tr>
-                                    <tr>
-                                    <td>04.30 PM - 05.30 PM</td>
-                                    <td>Open discussion & Meet the personality at auditorium</td>
-                                    </tr>
-                                    <tr>
-                                    <td>05.30 PM</td>
-                                    <td>Movie Show</td>
-                                    </tr>
-                                </tbody>
-                                </table>
+                            <div class="col-md-12 col-sm-12">
+                                <img src="{{ asset('images/day_1_1.jpg') }}" class="img-responsive">
+                                <br/>
+                                <img src="{{ asset('images/day_1_2.jpg') }}" class="img-responsive">
                             </div>
                         </div>
                     </div>
                     <div class="tab-content" id="tab-2">
                         <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                            <h3>First Half</h3>
-                            <table class="table table-bordered table-schedule">
-                                <thead>
-                                    <tr>
-                                    <th>Time Slot</th>
-                                    <th>Program</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td>10.00 AM - 11.00 AM</td>
-                                    <td>Workshop on Freelancing (How to start)</td>
-                                    </tr>
-                                    <tr>
-                                    <td>11.00 AM - 12.00 AM</td>
-                                    <td>ICT in Education: Prospect of Bangladesh</td>
-                                    </tr>
-                                    <tr>
-                                    <td>12.00 PM - 01.30 PM</td>
-                                    <td>Debate: Role of ICT to Prevention of violence against Women</td>
-                                    </tr>
-                                    <tr>
-                                    <td>01.30 PM - 02.30 PM</td>
-                                    <td>Lunch break</td>
-                                    </tr>
-                                    
-                                </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                            <h3>Second Half</h3>
-                            <table class="table table-bordered table-schedule">
-                                <thead>
-                                    <tr>
-                                    <th>Time Slot</th>
-                                    <th>Program</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <td>02.30 PM - 04.30 PM</td>
-                                    <td>Quiz Contest on stage</td>
-                                    </tr>
-                                    <tr>
-                                    <td>04.30 PM - 05.30 PM</td>
-                                    <td>Closing & Award giving Ceremony Started</td>
-                                    </tr>
-                                    <tr>
-                                    <td>05.30 PM</td>
-                                    <td>Musical Blast</td>
-                                    </tr>
-                                </tbody>
-                                </table>
+                            <div class="col-md-12 col-sm-12">
+                                <img src="{{ asset('images/day_2_1.jpg') }}" class="img-responsive">
+                                <br/>
+                                <img src="{{ asset('images/day_2_2.jpg') }}" class="img-responsive">
                             </div>
                         </div>
                     </div>
