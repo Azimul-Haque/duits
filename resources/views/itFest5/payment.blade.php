@@ -56,6 +56,7 @@
                     </center>
                 @elseif($registration->payment_status == 1)
                     <h3>Download the Registration Receipt</h3>
+                    <span>Transaction ID: {{ $registration->trxid }}</span>
                 @endif
                 @else
                 <h3 class="text-center">No Team Found! Search Again.</h3>

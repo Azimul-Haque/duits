@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ITFest5Registration as ITFestRegistration;
 
 use Shipu\Aamarpay\Facades\Aamarpay;
 use Session;
@@ -20,11 +21,16 @@ class PaymentController extends Controller
         $valid  = Aamarpay::valid($request, $amount);
         
         if($valid) {
-          Session::flash('success','Registration is complete!');
           $registration_id = $request->get('opt_a');
+
+          $registration = ITFestRegistration::where('registration_id', $registration_id);
+          $registration->trxid = $request->get('mer_txnid');
+          $registration->payment_status = 1;
+          $registration->save();
+          Session::flash('success','Registration is complete!');
         } else {
            // Something went wrong.
-          Session::flash('error',$registration_id.': You need to make the payment!');
+          Session::flash('error', $registration_id.': You need to make the payment!');
         }
         
         return redirect()->back();
