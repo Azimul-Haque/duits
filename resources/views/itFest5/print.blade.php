@@ -33,12 +33,15 @@
       }
     }
   </style>
-  <script type="text/javascript">
+  {{-- <script type="text/javascript">
     $(document).ready(function(){
-        window.print();
-        window.close();
+      setTimeout(function () {
+          window.print();
+          window.close();
+      }, 2000);
+        
     });
-  </script>
+  </script> --}}
 </head>
 <body>
   <div class="row">
