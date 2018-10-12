@@ -406,7 +406,7 @@ class AdminController extends Controller
             $filename   = str_replace(' ','',$request->title).time() .'.' . $image->getClientOriginalExtension();
             $location   = public_path('/uploads/itFest5/cover/'. $filename);
 
-            Image::make($image)->resize(950, null, function ($constraint) {
+            Image::make($image)->resize(1050, null, function ($constraint) {
             $constraint->aspectRatio();
             })->save($location);
             $cover->image = $filename;

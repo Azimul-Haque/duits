@@ -41,7 +41,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">* Please remeber the <b>Registration Id</b></td>
+                                <td colspan="5">* Please remember the <b>Registration Id</b></td>
                             </tr>
                         </tfoot>
                     </table>
