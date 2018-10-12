@@ -34,7 +34,7 @@
                         </div>
                     @endforeach
                     @else
-                       SORRY NO COMMITTEE MEMBER FOUND
+                       SORRY, NO ADVISORY COMMITTEE MEMBER FOUND
                     @endif
             </div>
         </div>
