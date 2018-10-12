@@ -14,6 +14,7 @@ use App\ITFest5Cover as ITFestCover;
 use App\ITFest5Guest as ITFestGuest;
 use App\ITFest5Registration as ITFestRegistration;
 use App\Message;
+use App\Advisor;
 
 use Carbon\Carbon;
 use Session;
@@ -499,6 +500,87 @@ class AdminController extends Controller
         $guest->delete();
         Session::flash('success','Successfully Deleted');
         return redirect(route('admin.itFest5'));
+    }
+
+    public function getAdvisors() {
+        $advisors = Advisor::orderBy('id', 'desc')->get();
+
+        return view('admin.advisors')->withAdvisors($advisors);
+    }
+
+    public function storeAdvisor(Request $request){
+        $this->validate($request,array(
+            'name' => 'required|max:255',
+            'designation' => 'required|max:255',
+            'institution' => 'required|max:255',
+            'photo' => 'sometimes|image|max:300'
+        ));
+
+        $advisor = new Advisor();
+        $advisor->name = trim($request->name);
+        $advisor->designation = trim($request->designation);
+        $advisor->institution = trim($request->institution);
+
+        // image upload
+        if($request->hasFile('photo')) {
+            $image      = $request->file('photo');
+            $filename   = str_replace(' ','',$advisor->name).time() .'.' . $image->getClientOriginalExtension();
+            $location   = public_path('/images/advisors/'. $filename);
+            Image::make($image)->resize(200, 200)->save($location);
+            $advisor->photo = $filename;
+        }
+        $advisor->save();
+        Session::flash('success','Successfully Saved');
+        return redirect(route('admin.advisors'));
+    }
+
+    public function updateAdvisor(Request $request){
+        $this->validate($request,array(
+            'id' => 'required',
+            'name' => 'required|max:255',
+            'designation' => 'required|max:255',
+            'institution' => 'required|max:255',
+            'photo' => 'sometimes|image|max:300'
+        ));
+
+        $advisor = Advisor::find($request->id);
+        $advisor->name = trim($request->name);
+        $advisor->designation = trim($request->designation);
+        $advisor->institution = trim($request->institution);
+
+        // image upload
+        if(!$advisor->photo == NULL){
+            if($request->hasFile('photo')) {
+                $image      = $request->file('photo');
+                $filename   = $advisor->photo;
+                $location   = public_path('/images/advisors/'. $filename);
+                Image::make($image)->resize(200, 200)->save($location);
+                $advisor->photo = $filename;
+            }
+        } else {
+            if($request->hasFile('photo')) {
+                $image      = $request->file('photo');
+                $filename   = str_replace(' ','',$advisor->name).time() .'.' . $image->getClientOriginalExtension();
+                $location   = public_path('/images/advisors/'. $filename);
+                Image::make($image)->resize(200, 200)->save($location);
+                $advisor->photo = $filename;
+            }
+        }
+
+        $advisor->save();
+        Session::flash('success','Successfully Saved');
+        return redirect(route('admin.advisors'));
+    }
+
+    public function deleteAdvisor(Request $request){
+        $advisor = Advisor::find($request->id);
+        $image_path = public_path('/images/advisors/'. $advisor->photo);
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $advisor->delete();
+        Session::flash('success','Successfully Deleted');
+        return redirect(route('admin.advisors'));
     }
 
 }

@@ -88,14 +88,17 @@
                                                 </ul>
                                           </li>-->
                                           <li>
-                                                            <a href="/news">News</a>
-                                                      </li>
-                                                      <li>
-                                                            <a href="/events">Events</a>
-                                                      </li>
-                                                      <li>
-                                                            <a href="/notice">Notice</a>
-                                                      </li>
+                                                <a href="{{ route('user.advisors') }}">Advisory Committee</a>
+                                          </li>
+                                          <li>
+                                                <a href="/news">News</a>
+                                          </li>
+                                          <li>
+                                                <a href="/events">Events</a>
+                                          </li>
+                                          <li>
+                                                <a href="/notice">Notice</a>
+                                          </li>
                                           <li class="dropdown">
                                                 <a href="{{Route('user.contact')}}">Contact Us</a>
                                           </li>

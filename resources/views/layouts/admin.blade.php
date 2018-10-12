@@ -46,6 +46,7 @@
                 <li>
                     <a href="{{Route('admin.dashboard')}}"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
                     <a href="{{Route('admin.add.committee.member')}}"><i class="fa fa-users"></i> <span class="nav-label">Committee</span></a>
+                    <a href="{{Route('admin.advisors')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Advisory Committee</span></a>
                     <a href="{{Route('admin.notice.add')}}"><i class="fa fa-bell"></i> <span class="nav-label">Notice</span></a>
                     <a href="{{Route('admin.news.add')}}"><i class="fa fa-newspaper-o"></i> <span class="nav-label">News</span></a>
                     <a href="{{Route('admin.events.add')}}"><i class="fa fa-calendar-check-o"></i> <span class="nav-label">Events</span></a>

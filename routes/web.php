@@ -29,6 +29,9 @@ Route::get('/history','IndexController@showHistory')->name('user.history');
 Route::get('/why-us','IndexController@showWhyus')->name('user.why.us');
 Route::post('/submit/message','IndexController@storeMessage')->name('user.submit.message');
 Route::get('/admin/check/committee','AdminController@checkCommitteeExistence');
+Route::get('/advisory/committee','IndexController@getAdvisors')->name('user.advisors');
+
+
 Route::get('/it-fest-5','IndexController@showItFest5')->name('user.it.Fest5');
 Route::post('/it-fest-5','IndexController@storeItFest5')->name('it.Fest5.store');
 Route::get('/it-fest-5/registration/{registration_id}','IndexController@payorcheckItFest5')->name('it.Fest5.payorcheck');
@@ -94,6 +97,12 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function () {
     Route::post('/update/itFest5/guest/','AdminController@updateITFestGuestForm')->name('admin.update.itFest.guest');
     Route::get('/delete/itFest5/cover/{id}','AdminController@deleteItFestCover');
     Route::get('/delete/itFest5/guest/{id}','AdminController@deleteItFestGuest');
+
+    Route::get('/advisors', 'AdminController@getAdvisors')->name('admin.advisors');
+    Route::post('/add/advisor','AdminController@storeAdvisor')->name('admin.advisor.store');
+    Route::post('/edit/advisor','AdminController@updateAdvisor')->name('admin.advisor.update');
+    Route::get('/delete/advisor/{id}','AdminController@deleteAdvisor')->name('admin.advisor.delete');
+
 });
 
 

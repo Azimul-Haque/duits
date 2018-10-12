@@ -16,6 +16,8 @@ use App\Message as Message;
 use App\ITFest5Cover as ITFestCover;
 use App\ITFest5Guest as ITFestGuest;
 use App\ITFest5Registration as ITFestRegistration;
+use App\Advisor;
+
 use Illuminate\Support\Facades\Redirect;
 
 use Carbon\Carbon;
@@ -125,6 +127,11 @@ class IndexController extends Controller
         return redirect()->back();
     }
 
+    public function getAdvisors(){
+        $advisors = Advisor::orderBy('id', 'desc')->get();
+        return view('user.advisors',['advisors'=>$advisors]);
+    }
+
     public function showItFest5(Request $request){
         $covers = ITFestCover::get();
         $guests = ITFestGuest::get();
@@ -141,7 +148,6 @@ class IndexController extends Controller
             'member3'           => 'sometimes|max:255',
             'member4'           => 'sometimes|max:255',
             'institution'       => 'required|max:255',
-            'class'             => 'required|max:255',
             'address'           => 'required|max:255',
             'email'            => 'required|email',
             'mobile'            => 'required|numeric',
@@ -161,7 +167,7 @@ class IndexController extends Controller
         $registration->member3 = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->member3)));
         $registration->member4 = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->member4)));
         $registration->institution = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->institution)));
-        $registration->class = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->class)));
+        $registration->class = 'text';
         $registration->address = htmlspecialchars(preg_replace("/\s+/", " ", ucwords($request->address)));
         $registration->email = $request->email;
         $registration->mobile = $request->mobile;

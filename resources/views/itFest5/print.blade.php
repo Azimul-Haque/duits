@@ -50,7 +50,7 @@
         <span>Date: 28<sup>th</sup> October &amp; 29<sup>th</sup> October 2018</span><br/>
         <small>Jointly organized by</small><br/>
         <span><b>Dhaka University IT Society</b></span>
-        <h3>REGISTRATION RECEIPT</h3>
+        <h3>PARTICIPANT'S COPY</h3>
       </center>
       <hr>
 

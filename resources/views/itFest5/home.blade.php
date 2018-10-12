@@ -201,10 +201,6 @@
                     <input type="text" class="form-control" placeholder="" required name="institution" value="{{ old('institution') }}">
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Class:</label>
-                    <input type="text" class="form-control" placeholder="" required name="class" value="{{ old('class') }}">
-                </div>
-                <div class="form-group">
                     <label class="control-label">Address:</label>
                     <input type="text" class="form-control" placeholder="" required name="address" value="{{ old('address') }}">
                 </div>
