@@ -178,7 +178,7 @@
                                           <i class="icon-mobile contact"></i> +8801923734867</li>
                                     <li>
                                           <a href="#">
-                                                <i class="icon-mail-1 contact"></i> admin@duits-bd.org</a>
+                                                <i class="icon-mail-1 contact"></i> info@duits-bd.org</a>
 </li>
 </ul>
 </div>
