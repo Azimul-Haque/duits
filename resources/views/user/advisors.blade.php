@@ -27,6 +27,7 @@
                                     <h2>
                                         {{$member->name}}
                                         <span>{{$member->designation}}</span>
+                                        <span>{{$member->institution}}</span>
                                     </h2>
                                 </figcaption>
                             </figure>
