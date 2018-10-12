@@ -49,8 +49,8 @@
                 @if($registration->payment_status == 0)
                     <center>
                         <h3>Please pay Tk. {{ $registration->amount }}/- following the process in the Next page, Click the button below.</h3>
-                        <div style="border: 2px solid #ddd; margin: 25px; width: 400px;">
-                            <img src="{{ asset('images/aamarpay.png') }}">
+                        <div style="border: 2px solid #ddd; margin: 25px; max-width: 400px;">
+                            <img src="{{ asset('images/aamarpay.png') }}" class="img-responsive">
                             {!! 
                             aamarpay_post_button([
                                 'cus_name'  => $registration->team,
@@ -66,7 +66,7 @@
                 @elseif($registration->payment_status == 1)
                     <center>
                         <h3>Download the Registration Receipt</h3>
-                        <div style="border: 2px solid #ddd; margin: 25px; width: 400px;">
+                        <div style="border: 2px solid #ddd; margin: 25px; max-width: 400px;">
                             <span>Transaction ID: {{ $registration->trxid }}</span><br/>
                             <a href="{{ route('it.Fest5.printreceipt', $registration->registration_id) }}" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> Print Registration Receipt</a>
                         </div>
