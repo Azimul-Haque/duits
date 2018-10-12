@@ -29,7 +29,7 @@ class PaymentController extends Controller
           Session::flash('success','Registration is complete!');
         } else {
            // Something went wrong.
-          Session::flash('info', $registration_id.': You need to make the payment!');
+          Session::flash('info', $registration_id.': Something went wrong, please reload this page!');
           return redirect(Route('it.Fest5.payorcheck', $registration_id));
         }
         
