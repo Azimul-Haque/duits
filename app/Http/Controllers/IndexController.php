@@ -60,7 +60,9 @@ class IndexController extends Controller
 
     public function showCommittee(Request $request){
         $type = Committee_type::where('name',$request->name)->first();
-        $committees = Committee::where('committee_type_id','=',$type->id)->get();
+        $committees = Committee::where('committee_type_id','=',$type->id)
+                                ->orderBy('id', 'asc')
+                                ->get();
         return view('user.committee',['committees'=>$committees,'type' => $type]);
     }
 
