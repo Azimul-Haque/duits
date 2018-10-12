@@ -25,7 +25,7 @@ class PaymentController extends Controller
           $registration = ITFestRegistration::where('registration_id', $registration_id)->first();
           $registration->trxid = $request->get('mer_txnid');
           $registration->payment_status = 1;
-          $registration->card_type = $request->get('card_type');;
+          $registration->card_type = $request->get('card_type');
           $registration->save();
           Session::flash('success','Registration is complete!');
         } else {
