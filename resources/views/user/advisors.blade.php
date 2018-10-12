@@ -8,7 +8,7 @@
             <div class="row inner-top-sm text-center">
                 @if(sizeof($advisors)>0)
                     @foreach($advisors as $member)
-                        <div class="col-sm-4 inner-bottom-sm inner-left inner-right" style="min-height: 490px;">
+                        <div class="col-sm-4 inner-bottom-sm inner-left inner-right" style="min-height: 530px;">
                             <figure class="member">
                                 <div class="icon-overlay icn-link">
                                     <a href="javascript:void(0);">
