@@ -15,7 +15,7 @@ class PaymentController extends Controller
         $registration_id = $request->get('opt_a');
         if($request->get('pay_status') == 'Failed') {
             Session::flash('info',$registration_id.': You need to make the payment!');
-            return redirect()->back();
+            return redirect(Route('it.Fest5.payorcheck', $registration_id));
         }
         
         $amount_request = $request->get('opt_b');
