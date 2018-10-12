@@ -33,6 +33,7 @@ class CreateITFest5RegistrationsTable extends Migration
             $table->string('amount');
             $table->string('trxid')->nullable();
             $table->integer('payment_status', 1);
+            $table->string('card_type')->nullable();;
             $table->timestamps();
         });
     }

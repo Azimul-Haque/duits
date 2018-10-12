@@ -20,6 +20,7 @@
                                 <th>Amount</th>
                                 <th>TrxId</th>
                                 <th>Payment Status</th>
+                                <th>Payment Medium</th>
                                 <th>Image</th>
                             </tr>
                             </thead>
@@ -40,6 +41,7 @@
                                                 Paid
                                             @endif
                                         </td>
+                                        <td>{{ $registration->card_type }}</td>
                                         <td>
                                             <img src="{{ asset('images/registration/' . $registration->imagepath) }}" style="height: 30px; width: 30px">
                                         </td>

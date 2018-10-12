@@ -194,6 +194,7 @@ class IndexController extends Controller
             $registration->amount = $amounts[$event[0]];
         }
         $registration->payment_status = 0;
+        $registration->card_type = '';
         //dd($registration);
         $registration->save();
 

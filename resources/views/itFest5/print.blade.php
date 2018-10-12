@@ -43,7 +43,7 @@
 <body>
   <div class="row">
     <div class="col-md-12">
-      <img src="{{ asset('images/print_background.png?unique_id=43543dsf') }}" class="img-responsive img-background">
+      <img src="{{ asset('images/print_background.png?unique_id=465a5sd') }}" class="img-responsive img-background">
       <center>
         <span>5<sup>th</sup> National</span><br/>
         <span style="font-size: 20px;"><b>DUITS Campus IT Fest 2018</b></span><br/>
@@ -97,7 +97,7 @@
             <td>{{ date('F d, Y h:i A', strtotime($team->created_at)) }}</td>
           </tr>
         </thead>
-      </table><br/>
+      </table>
   
       <h4><b>Award &amp; Prizes:</b></h4>
       <ul>
@@ -110,7 +110,10 @@
         Asma Akter<br/>
         General Secretary, Dhaka University IT Society (DUITS)<br/>
         Mobile: 01923 734 867
-      </div>
+      </div><br/>
+      <center>
+        <img src="{{ asset('images/print_background.png?unique_id=465a5sd') }}" style="width: 100px; height: auto;">
+      </center>
     </div>
   </div>
 </body>
