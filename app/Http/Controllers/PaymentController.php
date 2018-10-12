@@ -34,6 +34,7 @@ class PaymentController extends Controller
           return redirect(Route('it.Fest5.payorcheck', $registration_id));
         }
         
+        //return $request->all();
         return redirect(Route('it.Fest5.payorcheck', $registration_id));
     }
 }
