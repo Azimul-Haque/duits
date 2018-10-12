@@ -7,12 +7,12 @@
                     <h5>Registrations</h5>
                 </div>
                 <div class="ibox-content">
-                {{-- <button class="btn btn-info" data-toggle="modal" data-target="#addCoverModal">Add New Cover</button> --}}
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover dataTables-example" >
                             <thead>
                             <tr>
                                 <th>Team Name</th>
+                                <th>Other Members</th>
                                 <th>Event</th>
                                 <th>Registration ID</th>
                                 <th>Institution</th>
@@ -28,6 +28,12 @@
                                 @foreach($registrations as $registration)
                                     <tr>
                                         <td>{{ $registration->team }}</td>
+                                        <td>
+                                            {{ $registration->member1 }}, 
+                                            {{ $registration->member2 }}, 
+                                            {{ $registration->member3 }}, 
+                                            {{ $registration->member4 }}
+                                        </td>
                                         <td>{{ $registration->event_name }}</td>
                                         <td>{{ $registration->registration_id }}</td>
                                         <td>{{ $registration->institution }}</td>
