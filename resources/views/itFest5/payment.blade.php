@@ -67,7 +67,7 @@
                     <center>
                         <h3>Download the Registration Receipt</h3>
                         <div style="border: 2px solid #ddd; margin: 25px; max-width: 400px;">
-                            <span>Transaction ID: {{ $registration->trxid }}</span><br/>
+                            <span style="word-wrap: break-word;">Transaction ID: {{ $registration->trxid }}</span><br/>
                             <a href="{{ route('it.Fest5.printreceipt', $registration->registration_id) }}" class="btn btn-success" target="_blank"><i class="fa fa-print"></i> Print Registration Receipt</a>
                         </div>
                     </center>
