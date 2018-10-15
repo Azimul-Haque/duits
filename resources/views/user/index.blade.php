@@ -77,7 +77,7 @@ DUITS
         </div>
     </section>
     
-    <section id="visit-our-store" class="img-bg img-bg-soft" style="background-image: url(assets/images/1.jpg);">
+    <section id="visit-our-store" class="img-bg img-bg-soft">
         <div class="container inner">
             <div class="row">
                 <h1>Our Activities</h1>
@@ -245,5 +245,30 @@ DUITS
         <div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.429386583551!2d90.39349371456134!3d23.732062784598376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8e99b9de929%3A0x7250f88da2943ad4!2sDhaka+University+IT+Society!5e0!3m2!1sen!2sbd!4v1531043058251" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
+    
     </section>
+    <div id="overlay">
+      <div id="popup">
+        <div id="close">x</div>
+        <center>
+            <h2>DUITS 5TH IT FEST!</h2>
+            <a href="{{ route('user.it.Fest5') }}" class="btn btn-success btn-sm">Click Here</a> to see details!
+        </center>
+      </div>
+    </div>
+    
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+      setTimeout(function(){
+        $('#overlay').hide().fadeIn(2000);
+      }, 5000);
+
+      $('#close').click(function() {
+        $('#overlay').fadeOut(2000);
+      });
+    });
+</script>
+@stop
