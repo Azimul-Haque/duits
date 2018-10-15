@@ -36,7 +36,7 @@
                <div class="container">
                   <ul class="info pull-left">
                      <li><a href="#" style="color:white;"><i class="icon-mail-1 contact"></i>info@duits-bd.org</a></li>
-                     <li style="color:white;"><i class="icon-mobile contact"></i> +8801923734867</li>
+                     <li style="color:white;"><i class="icon-mobile contact"></i> +8801923734867, +8801764162343
                   </ul>
                   <ul class="social pull-right">
                      <li><a href="https://www.facebook.com/Dhaka.University.IT.Society.DUITS" target="_blank"><i class="icon-s-facebook"></i></a></li>

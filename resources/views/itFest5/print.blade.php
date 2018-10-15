@@ -39,7 +39,6 @@
           window.print();
           window.close();
       }, 1000);
-        
     });
   </script>
 </head>
