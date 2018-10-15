@@ -175,7 +175,10 @@
                                     <li>
                                           <i class="icon-location contact"></i> TSC, University of Dhaka</li>
                                     <li>
-                                          <i class="icon-mobile contact"></i> +8801923734867, +8801764162343
+                                          <i class="icon-mobile contact"></i> +8801923734867
+                                    </li>
+                                    <li>
+                                          <i class="icon-mobile contact"></i> +8801764162343
                                     </li>
                                     <li>
                                           <a href="#">

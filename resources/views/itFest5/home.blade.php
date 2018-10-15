@@ -170,7 +170,7 @@
                         <option value="2,IT Project Showcasing">IT Project Showcasing</option>
                         <option value="3,IT Noesis Quiz">IT Noesis Quiz</option>
                         <option value="5,Gaming Contest (NFS Most Wanted)">Gaming Contest (NFS Most Wanted)</option>
-                        <option value="6,Gaming Contest (FIFA-14)">Gaming Contest (FIFA-14)</option>
+                        <option value="6,Gaming Contest (FIFA-18)">Gaming Contest (FIFA-18)</option>
                         <option value="7,Brainstorming: IT based business idea Contest">Brainstorming: IT based business idea Contest</option>
                     </select>
                 </div>
