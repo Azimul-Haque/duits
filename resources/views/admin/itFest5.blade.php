@@ -7,7 +7,7 @@
                     <h5><i class="fa fa-line-chart" aria-hidden="true"></i> Total Collection</h5>
                 </div>
                 <div class="ibox-content">
-                    <h3>৳ {{ $totalcollection->totalamount }}</h3>
+                    <h1><b>৳ {{ $totalcollection->totalamount }}</b></h1>
                 </div>
             </div>
         </div>
