@@ -27,7 +27,7 @@
                             <tbody>
                                 @foreach($registrations as $registration)
                                     <tr>
-                                        <td>{{ date('F d, Y', strtotime($registration->created_at)) }}</td>
+                                        <td>{{ date('F d, Y H:i A', strtotime($registration->created_at)) }}</td>
                                         <td>{{ $registration->team }}</td>
                                         <td>
                                             {{ $registration->member1 }}, 
