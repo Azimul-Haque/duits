@@ -22,6 +22,8 @@ use Auth;
 use Image;
 use File;
 
+use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
 
@@ -73,9 +75,13 @@ class AdminController extends Controller
 
     public function ShowITFest5(){
         $registrations = ITFestRegistration::get();
+        $totalcollection = DB::table('i_t_fest5_registrations')
+                             ->select(DB::raw('SUM(amount) as totalamount'))
+                             ->where('payment_status', 1)
+                             ->first();
         $covers = ITFestCover::get();
         $guests = ITFestGuest::get();
-        return view('admin.itFest5', ['covers' => $covers, 'guests' => $guests, 'registrations' => $registrations]);
+        return view('admin.itFest5', ['covers' => $covers, 'guests' => $guests, 'registrations' => $registrations, 'totalcollection' => $totalcollection]);
     }
 
     public function showAddCommitteeMemberForm(){

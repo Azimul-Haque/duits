@@ -1,6 +1,18 @@
 @extends('layouts.admin')
 @section('body')
     <div class="row">
+        <div class="col-md-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><i class="fa fa-line-chart" aria-hidden="true"></i> Total Collection</h5>
+                </div>
+                <div class="ibox-content">
+                    <h3>৳ {{ $totalcollection->totalamount }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+        </div>
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
