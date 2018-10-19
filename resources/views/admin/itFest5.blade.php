@@ -27,7 +27,7 @@
                             <tbody>
                                 @foreach($registrations as $registration)
                                     <tr>
-                                        <td>{{ date('F d, Y H:i A', strtotime($registration->created_at)) }}</td>
+                                        <td>{{ date('F d, Y h:i A', strtotime($registration->created_at)) }}</td>
                                         <td>{{ $registration->team }}</td>
                                         <td>
                                             {{ $registration->member1 }}, 
@@ -48,7 +48,6 @@
                                                 Paid
                                             @endif
                                         </td>
-                                        <td>{{ $registration->card_type }}</td>
                                         <td>
                                             <img src="{{ asset('images/registration/' . $registration->imagepath) }}" style="height: 30px; width: 30px">
                                         </td>
