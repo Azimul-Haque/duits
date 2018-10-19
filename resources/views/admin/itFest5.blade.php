@@ -11,6 +11,7 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example" >
                             <thead>
                             <tr>
+                                <th>Date</th>
                                 <th>Team Name</th>
                                 <th>Other Members</th>
                                 <th>Event</th>
@@ -20,13 +21,13 @@
                                 <th>Amount</th>
                                 <th>TrxId</th>
                                 <th>Payment Status</th>
-                                <th>Payment Medium</th>
                                 <th>Image</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach($registrations as $registration)
                                     <tr>
+                                        <td>{{ date('F d, Y', strtotime($registration->created_at)) }}</td>
                                         <td>{{ $registration->team }}</td>
                                         <td>
                                             {{ $registration->member1 }}, 
@@ -287,8 +288,11 @@
                                 .css('font-size', 'inherit');
                         }
                     }
+                ],
+                order: [[ 0, "desc" ]],
+                columnDefs: [
+                      { targets: [0], type: 'date'}
                 ]
-
             });
 
         });
