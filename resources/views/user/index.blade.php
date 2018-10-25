@@ -247,7 +247,7 @@ DUITS
         </div>
     
     </section>
-    <div id="overlay">
+{{--     <div id="overlay">
       <div id="popup">
         <div id="close">x</div>
         <center>
@@ -255,20 +255,20 @@ DUITS
             <a href="{{ route('user.it.Fest5') }}" class="btn btn-success btn-sm">Click Here</a> to see details!
         </center>
       </div>
-    </div>
+    </div> --}}
     
 @endsection
 
 @section('scripts')
 <script type="text/javascript">
-    $(document).ready(function() {
-      setTimeout(function(){
-        $('#overlay').hide().fadeIn(2000);
-      }, 5000);
+    // $(document).ready(function() {
+    //   setTimeout(function(){
+    //     $('#overlay').hide().fadeIn(2000);
+    //   }, 5000);
 
-      $('#close').click(function() {
-        $('#overlay').fadeOut(2000);
-      });
-    });
+    //   $('#close').click(function() {
+    //     $('#overlay').fadeOut(2000);
+    //   });
+    // });
 </script>
 @stop
