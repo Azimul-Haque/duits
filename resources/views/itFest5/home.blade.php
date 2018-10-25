@@ -132,9 +132,10 @@
         <div class="row">
             <div class="col-md-8 col-sm-9 center-block text-center">
                 <header>
-                <h1>Want To Register Now?</h1>
+                <h1>Registration is CLOSED!</h1>
+                {{-- <h1>Want To Register Now?</h1> --}}
                 </header>
-                <a href="#modalRegistration" class="btn btn-large" data-toggle="modal" data-backdrop="static">Registration</a>
+                {{-- <a href="#modalRegistration" class="btn btn-large" data-toggle="modal" data-backdrop="static">Registration</a> --}}
             </div>
         </div>
     </div>
