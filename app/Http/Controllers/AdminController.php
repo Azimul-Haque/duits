@@ -116,8 +116,13 @@ class AdminController extends Controller
             $committee->photo = $filename;
         }
 
-        $committee->save();
-        Session::flash('success','Member Successfully Saved');
+        // $committee->save();
+        // Session::flash('success','Member Successfully Saved');
+
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+
         return redirect()->back();
     }
 
@@ -152,8 +157,13 @@ class AdminController extends Controller
             $news->imagepath = $filename;
         }
 
-        $news->save();
-        Session::flash('success','Successfully Saved');
+        // $news->save();
+        // Session::flash('success','Successfully Saved');
+
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+
         return redirect(Route('admin.news.add'));
     }
 
@@ -194,9 +204,13 @@ class AdminController extends Controller
             }
         }
         
-        $news->save();
+        // $news->save();
+        // Session::flash('success','Successfully Edited');
 
-        Session::flash('success','Successfully Edited');
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(Route('admin.news.add'));
     }
 
@@ -225,8 +239,14 @@ class AdminController extends Controller
         $notice = Notices::find($request->id);
         $notice->headline = trim($request->headline);
         $notice->body = trim($request->body);
-        $notice->save();
-        Session::flash('success','Successfully Edited');
+
+        // $notice->save();
+        // Session::flash('success','Successfully Edited');
+
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(Route('admin.notice.add'));
     }
 
@@ -271,8 +291,13 @@ class AdminController extends Controller
             $committee->photo = $filename;
         }
 
-        $committee->save();
-        Session::flash('success','Successfully Edited');
+        /*$committee->save();
+        Session::flash('success','Successfully Edited');*/
+
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect()->back();
     }
 
@@ -325,8 +350,14 @@ class AdminController extends Controller
                 $event->imagepath = $filename;
             }
         }
-        $event->save();
-        Session::flash('success','Successfully Edited');
+        
+        /*$event->save();
+        Session::flash('success','Successfully Edited');*/
+
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(Route('admin.events.add'));
     }
 
@@ -373,8 +404,14 @@ class AdminController extends Controller
             })->save($location);*/
             $event->imagepath = $filename;
         }
-        $event->save();
-        Session::flash('success','Successfully Saved');
+
+        /*$event->save();
+        Session::flash('success','Successfully Saved');*/
+        
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(Route('admin.events.add'));
     }
 
@@ -392,8 +429,14 @@ class AdminController extends Controller
         $notice = new Notices();
         $notice->headline = trim($request->headline);
         $notice->body = trim($request->body);
-        $notice->save();
-        Session::flash('success','Successfully Saved');
+        
+        // $notice->save();
+        // Session::flash('success','Successfully Saved');
+        
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(route('admin.notice.add'));
     }
 
@@ -417,8 +460,14 @@ class AdminController extends Controller
             })->save($location);
             $cover->image = $filename;
         }
-        $cover->save();
-        Session::flash('success','Successfully Saved');
+
+        // $cover->save();
+        // Session::flash('success','Successfully Saved');
+        
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(route('admin.itFest5'));
     }
 
@@ -443,8 +492,14 @@ class AdminController extends Controller
             Image::make($image)->resize(200, 200)->save($location);
             $guest->photo = $filename;
         }
-        $guest->save();
-        Session::flash('success','Successfully Saved');
+
+        // $guest->save();
+        // Session::flash('success','Successfully Saved');
+        
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(route('admin.itFest5'));
     }
 
@@ -481,8 +536,13 @@ class AdminController extends Controller
             }
         }
 
-        $guest->save();
-        Session::flash('success','Successfully Saved');
+        /*$guest->save();
+        Session::flash('success','Successfully Saved');*/
+
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(route('admin.itFest5'));
     }
 
@@ -535,8 +595,14 @@ class AdminController extends Controller
             Image::make($image)->resize(200, 200)->save($location);
             $advisor->photo = $filename;
         }
-        $advisor->save();
-        Session::flash('success','Successfully Saved');
+
+        // $advisor->save();
+        // Session::flash('success','Successfully Saved');
+        
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(route('admin.advisors'));
     }
 
@@ -573,8 +639,13 @@ class AdminController extends Controller
             }
         }
 
-        $advisor->save();
-        Session::flash('success','Successfully Saved');
+        // $advisor->save();
+        // Session::flash('success','Successfully Saved');
+
+        // TEMPORARY BLOCK...
+        Session::flash('warning','Failed: Unknown Error!');
+        // TEMPORARY BLOCK...
+        
         return redirect(route('admin.advisors'));
     }
 
